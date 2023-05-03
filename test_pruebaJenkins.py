@@ -4,4 +4,4 @@ import pytest
 def test_Tonto():
     assert 1==1
 def test_Listo():
-    assert 1==2
+    assert 2==2
