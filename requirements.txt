@@ -1,0 +1,4 @@
+selenium==4.9.0
+pytest==7.3.1
+webdriver-manager==3.8.6
+ytest-html-reporter==0.2.9
