@@ -1,7 +1,5 @@
 from selenium import webdriver
 import pytest
-import pytest_html_reporter
-from pytest_html_reporter import attach
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
@@ -34,6 +32,5 @@ def test_Boton():
         assert driver.find_element(By.ID,"boton").is_enabled()
 
 def teardown_module():
-        attach(data=driver.get_screenshot_as_png())
         driver.quit()
 
