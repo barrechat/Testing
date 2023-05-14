@@ -3,15 +3,15 @@ import datetime
 import pytest
 from py._xmlgen import *
 import test_HMI, test_Selenium, test_Selenium2
-import inspect
+import inspect,ast
 
 modulos= [test_HMI,test_Selenium,test_Selenium2]
-
+test_info_dict ={}
 def obtener_codigo_fuente(func):
-    archivo = inspect.getsourcefile(func)
-    with open(archivo, 'r') as f:
-        codigo = f.read()
-    return codigo
+    codigo_funcion = inspect.getsource(func)
+    arbol_sintactico = ast.parse(codigo_funcion)
+    cuerpo_funcion = ast.unparse(arbol_sintactico.body[0].body)
+    return cuerpo_funcion
 
 def get_test_info(test_function):
     return {
@@ -49,11 +49,13 @@ def pytest_runtest_makereport(item, call):
     outcome = yield
     report = outcome.get_result()
     report.description = str(item.function.__doc__)
-    global codigo 
-    codigo = get_test_info(item.function)
+    test_name = item.function.__name__
+    test_info_dict[test_name] = get_test_info(item.function)
 
 def pytest_html_results_table_html(report, data):
-    if report.passed:
+   if report.passed:
         del data[:]
         data.append(html.p("No log output captured."))
-        data.append(html.p(codigo))
+        test_name = report.nodeid.split("::")[-1]
+        test_info = test_info_dict[test_name]
+        data.append(html.p(test_info["source"]))
