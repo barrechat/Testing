@@ -19,6 +19,7 @@ def setup_module(self):
         driver.get("http://192.168.1.136/")
 
 def test_Desplegable():
+        """Esto es un test de visualizacion del desplegable"""
         botonDesplegable = driver.find_element(By.ID,"btn-desplegable")
         botonDesplegable.click()
         widthDesplegado =driver.find_element(By.ID,"menu-options").get_attribute("style")
