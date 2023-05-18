@@ -57,19 +57,22 @@ def pytest_runtest_makereport(item, call):
 def pytest_html_results_table_html(report, data):
    if report.passed:
     del data[:]
-    data.append(html.p("No log output captured.\n"))
+    data.append(html.p(report.description +"\n"))
     test_name = report.nodeid.split("::")[-1]
     test_info = test_info_dict[test_name]
-    table = html.table()
+    table = html.table(style ="width: 100%")
     data.append(table)
     thead = html.thead()
     table.append(thead)
     tbody = html.tbody()
     table.append(tbody)
     thead.append(html.tr(html.th(test_info["name"])))
-    for line in test_info["source"]:
-        tbody.append(html.tr(html.td(line, class_="col-result", style ="color : black")))
-        tbody.append(html.tr(html.td("la linea es correcta", class_="extra")))
-        
+    first_line = True
 
-        
+    for line in test_info["source"]:
+        if first_line:
+            first_line = False
+        else:
+            tbody.append(html.tr(html.td(line, class_="col-result", style="color: black")))
+            tbody.append(html.tr(html.td("la linea es correcta", class_="extra")))
+
