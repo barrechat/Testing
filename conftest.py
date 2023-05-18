@@ -7,18 +7,20 @@ import inspect,ast
 
 modulos= [test_HMI,test_Selenium,test_Selenium2]
 test_info_dict ={}
+
 def obtener_codigo_fuente(func):
     codigo_funcion = inspect.getsource(func)
     arbol_sintactico = ast.parse(codigo_funcion)
     cuerpo_funcion = ast.unparse(arbol_sintactico.body[0].body)
-    return cuerpo_funcion
+    lineas = cuerpo_funcion.split('\n')
+    return lineas
 
 def get_test_info(test_function):
     return {
         'name': test_function.__name__,
         'docstring': test_function.__doc__,
         'source': obtener_codigo_fuente(test_function),
-        'result': '',
+        'result': "",
         'duration': 0,
         # Agrega aquí cualquier otra información que desees
     }
@@ -54,8 +56,20 @@ def pytest_runtest_makereport(item, call):
 
 def pytest_html_results_table_html(report, data):
    if report.passed:
-        del data[:]
-        data.append(html.p("No log output captured."))
-        test_name = report.nodeid.split("::")[-1]
-        test_info = test_info_dict[test_name]
-        data.append(html.p(test_info["source"]))
+    del data[:]
+    data.append(html.p("No log output captured.\n"))
+    test_name = report.nodeid.split("::")[-1]
+    test_info = test_info_dict[test_name]
+    table = html.table()
+    data.append(table)
+    thead = html.thead()
+    table.append(thead)
+    tbody = html.tbody()
+    table.append(tbody)
+    thead.append(html.tr(html.th(test_info["name"])))
+    for line in test_info["source"]:
+        tbody.append(html.tr(html.td(line, class_="col-result", style ="color : black")))
+        tbody.append(html.tr(html.td("la linea es correcta", class_="extra")))
+        
+
+        

@@ -253,7 +253,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>My very own title!</h1>
-    <p>Report generated on 14-May-2023 at 19:02:19 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 18-May-2023 at 11:30:24 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -261,7 +261,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>{"pluggy": "1.0.0", "pytest": "7.3.1"}</td></tr>
       <tr>
         <td>Platform</td>
-        <td>Linux-5.10.0-22-amd64-x86_64-with-glibc2.31</td></tr>
+        <td>Linux-5.10.0-23-amd64-x86_64-with-glibc2.31</td></tr>
       <tr>
         <td>Plugins</td>
         <td>{"html": "3.2.0", "metadata": "2.0.4"}</td></tr>
@@ -289,86 +289,170 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="error results-table-row">
         <tr>
           <td class="col-result">Error</td>
-          <td class="col-time">2023-05-14 19:02:19.497043</td>
+          <td class="col-time">2023-05-18 11:30:24.877643</td>
           <td class="col-name">test_HMI.py::test_Desplegable::setup</td>
           <td>Esto es un test de visualizacion del desplegable</td>
-          <td class="col-duration">0.79</td></tr>
+          <td class="col-duration">0.77</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log">self = &lt;module &#x27;test_HMI&#x27; from &#x27;/home/aritz/Documentos/Stadler/Testing/test_HMI.py&#x27;&gt;<br/><br/>    def setup_module(self):<br/>            global driver<br/>            options = webdriver.ChromeOptions()<br/>            options.add_argument(&#x27;--window-size=1920,1080&#x27;)<br/>            options.add_argument(&quot;--headless&quot;)<br/>            options.add_argument(&quot;--start-maximized&quot;)<br/>            options.add_argument(&#x27;--no-sandbox&#x27;)<br/>            driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=options)<br/>            driver.implicitly_wait(30)<br/>            driver.minimize_window()<br/>&gt;           driver.get(&quot;http://192.168.1.136/&quot;)<br/><br/>test_HMI.py:19: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>../../../.local/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:449: in get<br/>    self.execute(Command.GET, {&quot;url&quot;: url})<br/>../../../.local/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:440: in execute<br/>    self.error_handler.check_response(response)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f223e812f10&gt;<br/>response = {&#x27;status&#x27;: 500, &#x27;value&#x27;: &#x27;{&quot;value&quot;:{&quot;error&quot;:&quot;unknown error&quot;,&quot;message&quot;:&quot;unknown error: net::ERR_CONNECTION_REFUSED\\n  ...wn&gt;\\n#23 0x55e55f27ec97 \\u003Cunknown&gt;\\n#24 0x55e55f28f113 \\u003Cunknown&gt;\\n#25 0x7fc889e07ea7 start_thread\\n&quot;}}&#x27;}<br/><br/>    def check_response(self, response: Dict[str, Any]) -&gt; None:<br/>        &quot;&quot;&quot;Checks that a JSON response from the WebDriver does not have an<br/>        error.<br/>    <br/>        :Args:<br/>         - response - The JSON response from the WebDriver server as a dictionary<br/>           object.<br/>    <br/>        :Raises: If the response contains an error message.<br/>        &quot;&quot;&quot;<br/>        status = response.get(&quot;status&quot;, None)<br/>        if not status or status == ErrorCode.SUCCESS:<br/>            return<br/>        value = None<br/>        message = response.get(&quot;message&quot;, &quot;&quot;)<br/>        screen: str = response.get(&quot;screen&quot;, &quot;&quot;)<br/>        stacktrace = None<br/>        if isinstance(status, int):<br/>            value_json = response.get(&quot;value&quot;, None)<br/>            if value_json and isinstance(value_json, str):<br/>                import json<br/>    <br/>                try:<br/>                    value = json.loads(value_json)<br/>                    if len(value) == 1:<br/>                        value = value[&quot;value&quot;]<br/>                    status = value.get(&quot;error&quot;, None)<br/>                    if not status:<br/>                        status = value.get(&quot;status&quot;, ErrorCode.UNKNOWN_ERROR)<br/>                        message = value.get(&quot;value&quot;) or value.get(&quot;message&quot;)<br/>                        if not isinstance(message, str):<br/>                            value = message<br/>                            message = message.get(&quot;message&quot;)<br/>                    else:<br/>                        message = value.get(&quot;message&quot;, None)<br/>                except ValueError:<br/>                    pass<br/>    <br/>        exception_class: Type[WebDriverException]<br/>        if status in ErrorCode.NO_SUCH_ELEMENT:<br/>            exception_class = NoSuchElementException<br/>        elif status in ErrorCode.NO_SUCH_FRAME:<br/>            exception_class = NoSuchFrameException<br/>        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:<br/>            exception_class = NoSuchShadowRootException<br/>        elif status in ErrorCode.NO_SUCH_WINDOW:<br/>            exception_class = NoSuchWindowException<br/>        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:<br/>            exception_class = StaleElementReferenceException<br/>        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:<br/>            exception_class = ElementNotVisibleException<br/>        elif status in ErrorCode.INVALID_ELEMENT_STATE:<br/>            exception_class = InvalidElementStateException<br/>        elif (<br/>            status in ErrorCode.INVALID_SELECTOR<br/>            or status in ErrorCode.INVALID_XPATH_SELECTOR<br/>            or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER<br/>        ):<br/>            exception_class = InvalidSelectorException<br/>        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:<br/>            exception_class = ElementNotSelectableException<br/>        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:<br/>            exception_class = ElementNotInteractableException<br/>        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:<br/>            exception_class = InvalidCookieDomainException<br/>        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:<br/>            exception_class = UnableToSetCookieException<br/>        elif status in ErrorCode.TIMEOUT:<br/>            exception_class = TimeoutException<br/>        elif status in ErrorCode.SCRIPT_TIMEOUT:<br/>            exception_class = TimeoutException<br/>        elif status in ErrorCode.UNKNOWN_ERROR:<br/>            exception_class = WebDriverException<br/>        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:<br/>            exception_class = UnexpectedAlertPresentException<br/>        elif status in ErrorCode.NO_ALERT_OPEN:<br/>            exception_class = NoAlertPresentException<br/>        elif status in ErrorCode.IME_NOT_AVAILABLE:<br/>            exception_class = ImeNotAvailableException<br/>        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:<br/>            exception_class = ImeActivationFailedException<br/>        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:<br/>            exception_class = MoveTargetOutOfBoundsException<br/>        elif status in ErrorCode.JAVASCRIPT_ERROR:<br/>            exception_class = JavascriptException<br/>        elif status in ErrorCode.SESSION_NOT_CREATED:<br/>            exception_class = SessionNotCreatedException<br/>        elif status in ErrorCode.INVALID_ARGUMENT:<br/>            exception_class = InvalidArgumentException<br/>        elif status in ErrorCode.NO_SUCH_COOKIE:<br/>            exception_class = NoSuchCookieException<br/>        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:<br/>            exception_class = ScreenshotException<br/>        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:<br/>            exception_class = ElementClickInterceptedException<br/>        elif status in ErrorCode.INSECURE_CERTIFICATE:<br/>            exception_class = InsecureCertificateException<br/>        elif status in ErrorCode.INVALID_COORDINATES:<br/>            exception_class = InvalidCoordinatesException<br/>        elif status in ErrorCode.INVALID_SESSION_ID:<br/>            exception_class = InvalidSessionIdException<br/>        elif status in ErrorCode.UNKNOWN_METHOD:<br/>            exception_class = UnknownMethodException<br/>        else:<br/>            exception_class = WebDriverException<br/>        if not value:<br/>            value = response[&quot;value&quot;]<br/>        if isinstance(value, str):<br/>            raise exception_class(value)<br/>        if message == &quot;&quot; and &quot;message&quot; in value:<br/>            message = value[&quot;message&quot;]<br/>    <br/>        screen = None  # type: ignore[assignment]<br/>        if &quot;screen&quot; in value:<br/>            screen = value[&quot;screen&quot;]<br/>    <br/>        stacktrace = None<br/>        st_value = value.get(&quot;stackTrace&quot;) or value.get(&quot;stacktrace&quot;)<br/>        if st_value:<br/>            if isinstance(st_value, str):<br/>                stacktrace = st_value.split(&quot;\n&quot;)<br/>            else:<br/>                stacktrace = []<br/>                try:<br/>                    for frame in st_value:<br/>                        line = frame.get(&quot;lineNumber&quot;, &quot;&quot;)<br/>                        file = frame.get(&quot;fileName&quot;, &quot;&lt;anonymous&gt;&quot;)<br/>                        if line:<br/>                            file = f&quot;{file}:{line}&quot;<br/>                        meth = frame.get(&quot;methodName&quot;, &quot;&lt;anonymous&gt;&quot;)<br/>                        if &quot;className&quot; in frame:<br/>                            meth = f&quot;{frame[&#x27;className&#x27;]}.{meth}&quot;<br/>                        msg = &quot;    at %s (%s)&quot;<br/>                        msg = msg % (meth, file)<br/>                        stacktrace.append(msg)<br/>                except TypeError:<br/>                    pass<br/>        if exception_class == UnexpectedAlertPresentException:<br/>            alert_text = None<br/>            if &quot;data&quot; in value:<br/>                alert_text = value[&quot;data&quot;].get(&quot;text&quot;)<br/>            elif &quot;alert&quot; in value:<br/>                alert_text = value[&quot;alert&quot;].get(&quot;text&quot;)<br/>            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here<br/>&gt;       raise exception_class(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED</span><br/><span class="error">E         (Session info: headless chrome=113.0.5672.92)</span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x55e55f297133 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x55e55efcb966 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x55e55efc39bf &lt;unknown&gt;</span><br/><span class="error">E       #3 0x55e55efb5e42 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x55e55efb7612 &lt;unknown&gt;</span><br/><span class="error">E       #5 0x55e55efb626a &lt;unknown&gt;</span><br/><span class="error">E       #6 0x55e55efb52e8 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x55e55efb5120 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x55e55efb3b18 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x55e55efb414d &lt;unknown&gt;</span><br/><span class="error">E       #10 0x55e55efcd746 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x55e55f0408b5 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x55e55f027bd2 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x55e55f0401c7 &lt;unknown&gt;</span><br/><span class="error">E       #14 0x55e55f0279a3 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x55e55effc46a &lt;unknown&gt;</span><br/><span class="error">E       #16 0x55e55effd55e &lt;unknown&gt;</span><br/><span class="error">E       #17 0x55e55f256cae &lt;unknown&gt;</span><br/><span class="error">E       #18 0x55e55f25a8fe &lt;unknown&gt;</span><br/><span class="error">E       #19 0x55e55f263f20 &lt;unknown&gt;</span><br/><span class="error">E       #20 0x55e55f25b923 &lt;unknown&gt;</span><br/><span class="error">E       #21 0x55e55f22ec0e &lt;unknown&gt;</span><br/><span class="error">E       #22 0x55e55f27eb08 &lt;unknown&gt;</span><br/><span class="error">E       #23 0x55e55f27ec97 &lt;unknown&gt;</span><br/><span class="error">E       #24 0x55e55f28f113 &lt;unknown&gt;</span><br/><span class="error">E       #25 0x7fc889e07ea7 start_thread</span><br/><br/>../../../.local/lib/python3.9/site-packages/selenium/webdriver/remote/errorhandler.py:245: WebDriverException<br/></div></td></tr></tbody>
+            <div class="log">self = &lt;module &#x27;test_HMI&#x27; from &#x27;/home/aritz/Documentos/Stadler/Testing/test_HMI.py&#x27;&gt;<br/><br/>    def setup_module(self):<br/>            global driver<br/>            options = webdriver.ChromeOptions()<br/>            options.add_argument(&#x27;--window-size=1920,1080&#x27;)<br/>            options.add_argument(&quot;--headless&quot;)<br/>            options.add_argument(&quot;--start-maximized&quot;)<br/>            options.add_argument(&#x27;--no-sandbox&#x27;)<br/>            driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=options)<br/>            driver.implicitly_wait(30)<br/>            driver.minimize_window()<br/>&gt;           driver.get(&quot;http://192.168.1.136/&quot;)<br/><br/>test_HMI.py:19: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>../../../.local/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:449: in get<br/>    self.execute(Command.GET, {&quot;url&quot;: url})<br/>../../../.local/lib/python3.9/site-packages/selenium/webdriver/remote/webdriver.py:440: in execute<br/>    self.error_handler.check_response(response)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f4e7028dee0&gt;<br/>response = {&#x27;status&#x27;: 500, &#x27;value&#x27;: &#x27;{&quot;value&quot;:{&quot;error&quot;:&quot;unknown error&quot;,&quot;message&quot;:&quot;unknown error: net::ERR_CONNECTION_REFUSED\\n  ...wn&gt;\\n#23 0x55ce6861fc97 \\u003Cunknown&gt;\\n#24 0x55ce68630113 \\u003Cunknown&gt;\\n#25 0x7f76499a8ea7 start_thread\\n&quot;}}&#x27;}<br/><br/>    def check_response(self, response: Dict[str, Any]) -&gt; None:<br/>        &quot;&quot;&quot;Checks that a JSON response from the WebDriver does not have an<br/>        error.<br/>    <br/>        :Args:<br/>         - response - The JSON response from the WebDriver server as a dictionary<br/>           object.<br/>    <br/>        :Raises: If the response contains an error message.<br/>        &quot;&quot;&quot;<br/>        status = response.get(&quot;status&quot;, None)<br/>        if not status or status == ErrorCode.SUCCESS:<br/>            return<br/>        value = None<br/>        message = response.get(&quot;message&quot;, &quot;&quot;)<br/>        screen: str = response.get(&quot;screen&quot;, &quot;&quot;)<br/>        stacktrace = None<br/>        if isinstance(status, int):<br/>            value_json = response.get(&quot;value&quot;, None)<br/>            if value_json and isinstance(value_json, str):<br/>                import json<br/>    <br/>                try:<br/>                    value = json.loads(value_json)<br/>                    if len(value) == 1:<br/>                        value = value[&quot;value&quot;]<br/>                    status = value.get(&quot;error&quot;, None)<br/>                    if not status:<br/>                        status = value.get(&quot;status&quot;, ErrorCode.UNKNOWN_ERROR)<br/>                        message = value.get(&quot;value&quot;) or value.get(&quot;message&quot;)<br/>                        if not isinstance(message, str):<br/>                            value = message<br/>                            message = message.get(&quot;message&quot;)<br/>                    else:<br/>                        message = value.get(&quot;message&quot;, None)<br/>                except ValueError:<br/>                    pass<br/>    <br/>        exception_class: Type[WebDriverException]<br/>        if status in ErrorCode.NO_SUCH_ELEMENT:<br/>            exception_class = NoSuchElementException<br/>        elif status in ErrorCode.NO_SUCH_FRAME:<br/>            exception_class = NoSuchFrameException<br/>        elif status in ErrorCode.NO_SUCH_SHADOW_ROOT:<br/>            exception_class = NoSuchShadowRootException<br/>        elif status in ErrorCode.NO_SUCH_WINDOW:<br/>            exception_class = NoSuchWindowException<br/>        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:<br/>            exception_class = StaleElementReferenceException<br/>        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:<br/>            exception_class = ElementNotVisibleException<br/>        elif status in ErrorCode.INVALID_ELEMENT_STATE:<br/>            exception_class = InvalidElementStateException<br/>        elif (<br/>            status in ErrorCode.INVALID_SELECTOR<br/>            or status in ErrorCode.INVALID_XPATH_SELECTOR<br/>            or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER<br/>        ):<br/>            exception_class = InvalidSelectorException<br/>        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:<br/>            exception_class = ElementNotSelectableException<br/>        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:<br/>            exception_class = ElementNotInteractableException<br/>        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:<br/>            exception_class = InvalidCookieDomainException<br/>        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:<br/>            exception_class = UnableToSetCookieException<br/>        elif status in ErrorCode.TIMEOUT:<br/>            exception_class = TimeoutException<br/>        elif status in ErrorCode.SCRIPT_TIMEOUT:<br/>            exception_class = TimeoutException<br/>        elif status in ErrorCode.UNKNOWN_ERROR:<br/>            exception_class = WebDriverException<br/>        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:<br/>            exception_class = UnexpectedAlertPresentException<br/>        elif status in ErrorCode.NO_ALERT_OPEN:<br/>            exception_class = NoAlertPresentException<br/>        elif status in ErrorCode.IME_NOT_AVAILABLE:<br/>            exception_class = ImeNotAvailableException<br/>        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:<br/>            exception_class = ImeActivationFailedException<br/>        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:<br/>            exception_class = MoveTargetOutOfBoundsException<br/>        elif status in ErrorCode.JAVASCRIPT_ERROR:<br/>            exception_class = JavascriptException<br/>        elif status in ErrorCode.SESSION_NOT_CREATED:<br/>            exception_class = SessionNotCreatedException<br/>        elif status in ErrorCode.INVALID_ARGUMENT:<br/>            exception_class = InvalidArgumentException<br/>        elif status in ErrorCode.NO_SUCH_COOKIE:<br/>            exception_class = NoSuchCookieException<br/>        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:<br/>            exception_class = ScreenshotException<br/>        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:<br/>            exception_class = ElementClickInterceptedException<br/>        elif status in ErrorCode.INSECURE_CERTIFICATE:<br/>            exception_class = InsecureCertificateException<br/>        elif status in ErrorCode.INVALID_COORDINATES:<br/>            exception_class = InvalidCoordinatesException<br/>        elif status in ErrorCode.INVALID_SESSION_ID:<br/>            exception_class = InvalidSessionIdException<br/>        elif status in ErrorCode.UNKNOWN_METHOD:<br/>            exception_class = UnknownMethodException<br/>        else:<br/>            exception_class = WebDriverException<br/>        if not value:<br/>            value = response[&quot;value&quot;]<br/>        if isinstance(value, str):<br/>            raise exception_class(value)<br/>        if message == &quot;&quot; and &quot;message&quot; in value:<br/>            message = value[&quot;message&quot;]<br/>    <br/>        screen = None  # type: ignore[assignment]<br/>        if &quot;screen&quot; in value:<br/>            screen = value[&quot;screen&quot;]<br/>    <br/>        stacktrace = None<br/>        st_value = value.get(&quot;stackTrace&quot;) or value.get(&quot;stacktrace&quot;)<br/>        if st_value:<br/>            if isinstance(st_value, str):<br/>                stacktrace = st_value.split(&quot;\n&quot;)<br/>            else:<br/>                stacktrace = []<br/>                try:<br/>                    for frame in st_value:<br/>                        line = frame.get(&quot;lineNumber&quot;, &quot;&quot;)<br/>                        file = frame.get(&quot;fileName&quot;, &quot;&lt;anonymous&gt;&quot;)<br/>                        if line:<br/>                            file = f&quot;{file}:{line}&quot;<br/>                        meth = frame.get(&quot;methodName&quot;, &quot;&lt;anonymous&gt;&quot;)<br/>                        if &quot;className&quot; in frame:<br/>                            meth = f&quot;{frame[&#x27;className&#x27;]}.{meth}&quot;<br/>                        msg = &quot;    at %s (%s)&quot;<br/>                        msg = msg % (meth, file)<br/>                        stacktrace.append(msg)<br/>                except TypeError:<br/>                    pass<br/>        if exception_class == UnexpectedAlertPresentException:<br/>            alert_text = None<br/>            if &quot;data&quot; in value:<br/>                alert_text = value[&quot;data&quot;].get(&quot;text&quot;)<br/>            elif &quot;alert&quot; in value:<br/>                alert_text = value[&quot;alert&quot;].get(&quot;text&quot;)<br/>            raise exception_class(message, screen, stacktrace, alert_text)  # type: ignore[call-arg]  # mypy is not smart enough here<br/>&gt;       raise exception_class(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED</span><br/><span class="error">E         (Session info: headless chrome=113.0.5672.92)</span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x55ce68638133 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x55ce6836c966 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x55ce683649bf &lt;unknown&gt;</span><br/><span class="error">E       #3 0x55ce68356e42 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x55ce68358612 &lt;unknown&gt;</span><br/><span class="error">E       #5 0x55ce6835726a &lt;unknown&gt;</span><br/><span class="error">E       #6 0x55ce683562e8 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x55ce68356120 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x55ce68354b18 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x55ce6835514d &lt;unknown&gt;</span><br/><span class="error">E       #10 0x55ce6836e746 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x55ce683e18b5 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x55ce683c8bd2 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x55ce683e11c7 &lt;unknown&gt;</span><br/><span class="error">E       #14 0x55ce683c89a3 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x55ce6839d46a &lt;unknown&gt;</span><br/><span class="error">E       #16 0x55ce6839e55e &lt;unknown&gt;</span><br/><span class="error">E       #17 0x55ce685f7cae &lt;unknown&gt;</span><br/><span class="error">E       #18 0x55ce685fb8fe &lt;unknown&gt;</span><br/><span class="error">E       #19 0x55ce68604f20 &lt;unknown&gt;</span><br/><span class="error">E       #20 0x55ce685fc923 &lt;unknown&gt;</span><br/><span class="error">E       #21 0x55ce685cfc0e &lt;unknown&gt;</span><br/><span class="error">E       #22 0x55ce6861fb08 &lt;unknown&gt;</span><br/><span class="error">E       #23 0x55ce6861fc97 &lt;unknown&gt;</span><br/><span class="error">E       #24 0x55ce68630113 &lt;unknown&gt;</span><br/><span class="error">E       #25 0x7f76499a8ea7 start_thread</span><br/><br/>../../../.local/lib/python3.9/site-packages/selenium/webdriver/remote/errorhandler.py:245: WebDriverException<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-time">2023-05-14 19:02:19.497137</td>
+          <td class="col-time">2023-05-18 11:30:24.877740</td>
           <td class="col-name">test_Selenium.py::test_Texto</td>
           <td>Esto es un test de comparacion de texto</td>
           <td class="col-duration">0.80</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <p>No log output captured.</p>
-            <p>&apos;Esto es un test de comparacion de texto&apos;
-texto = driver.find_element(By.ID, &apos;texto&apos;).text
-assert texto == &apos;Texto x&apos;</p></td></tr></tbody>
+            <p>No log output captured.
+</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>test_Texto</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="col-result" style="color : black">&apos;Esto es un test de comparacion de texto&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">texto = driver.find_element(By.ID, &apos;texto&apos;).text</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">assert texto == &apos;Texto x&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-time">2023-05-14 19:02:19.497209</td>
+          <td class="col-time">2023-05-18 11:30:24.877854</td>
           <td class="col-name">test_Selenium.py::test_Imagen</td>
           <td>Esto es un test de comparacion de ruta de origen de imagen</td>
           <td class="col-duration">0.02</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <p>No log output captured.</p>
-            <p>&apos;Esto es un test de comparacion de ruta de origen de imagen&apos;
-ruta = driver.find_element(By.ID, &apos;imagen&apos;).get_attribute(&apos;src&apos;)
-assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></td></tr></tbody>
+            <p>No log output captured.
+</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>test_Imagen</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="col-result" style="color : black">&apos;Esto es un test de comparacion de ruta de origen de imagen&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">ruta = driver.find_element(By.ID, &apos;imagen&apos;).get_attribute(&apos;src&apos;)</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-time">2023-05-14 19:02:19.497260</td>
+          <td class="col-time">2023-05-18 11:30:24.877925</td>
           <td class="col-name">test_Selenium.py::test_Boton</td>
           <td>Esto es un test de comparacion de boton disponible</td>
           <td class="col-duration">0.06</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <p>No log output captured.</p>
-            <p>&apos;Esto es un test de comparacion de boton disponible&apos;
-assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</p></td></tr></tbody>
+            <p>No log output captured.
+</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>test_Boton</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="col-result" style="color : black">&apos;Esto es un test de comparacion de boton disponible&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-time">2023-05-14 19:02:19.497310</td>
+          <td class="col-time">2023-05-18 11:30:24.885709</td>
           <td class="col-name">test_Selenium2.py::test_Texto</td>
           <td>Esto es un test de comparacion de texto</td>
           <td class="col-duration">0.79</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <p>No log output captured.</p>
-            <p>&apos;Esto es un test de comparacion de texto&apos;
-texto = driver.find_element(By.ID, &apos;texto&apos;).text
-assert texto == &apos;Texto x&apos;</p></td></tr></tbody>
+            <p>No log output captured.
+</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>test_Texto</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="col-result" style="color : black">&apos;Esto es un test de comparacion de texto&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">texto = driver.find_element(By.ID, &apos;texto&apos;).text</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">assert texto == &apos;Texto x&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-time">2023-05-14 19:02:19.497362</td>
+          <td class="col-time">2023-05-18 11:30:24.885800</td>
           <td class="col-name">test_Selenium2.py::test_Imagen</td>
           <td>Esto es un test de comparacion de ruta de origen de imagen</td>
           <td class="col-duration">0.02</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <p>No log output captured.</p>
-            <p>&apos;Esto es un test de comparacion de ruta de origen de imagen&apos;
-ruta = driver.find_element(By.ID, &apos;imagen&apos;).get_attribute(&apos;src&apos;)
-assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></td></tr></tbody>
+            <p>No log output captured.
+</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>test_Imagen</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="col-result" style="color : black">&apos;Esto es un test de comparacion de ruta de origen de imagen&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">ruta = driver.find_element(By.ID, &apos;imagen&apos;).get_attribute(&apos;src&apos;)</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-time">2023-05-14 19:02:19.497410</td>
+          <td class="col-time">2023-05-18 11:30:24.885868</td>
           <td class="col-name">test_Selenium2.py::test_Boton</td>
           <td>Esto es un test de comparacion de boton disponible</td>
           <td class="col-duration">0.06</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <p>No log output captured.</p>
-            <p>&apos;Esto es un test de comparacion de boton disponible&apos;
-assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</p></td></tr></tbody></table></body></html>
+            <p>No log output captured.
+</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>test_Boton</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="col-result" style="color : black">&apos;Esto es un test de comparacion de boton disponible&apos;</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr>
+                <tr>
+                  <td class="col-result" style="color : black">assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</td></tr>
+                <tr>
+                  <td class="extra">la linea es correcta</td></tr></tbody></table></td></tr></tbody></table></body></html>
