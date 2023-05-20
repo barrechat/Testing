@@ -8,6 +8,7 @@ import inspect,ast
 modulos= [test_HMI,test_Selenium,test_Selenium2]
 test_info_dict ={}
 
+
 def obtener_codigo_fuente(func):
     codigo_funcion = inspect.getsource(func)
     arbol_sintactico = ast.parse(codigo_funcion)
@@ -19,23 +20,48 @@ def get_test_info(test_function):
     return {
         'name': test_function.__name__,
         'docstring': test_function.__doc__,
-        'source': obtener_codigo_fuente(test_function),
-        'result': "",
-        'duration': 0,
+        'source': obtener_codigo_fuente(test_function)
         # Agrega aquí cualquier otra información que desees
     }
     
+## estructura detalles assert
+def assertStruc():
+    return html.tr(
+    html.td(
+        html.div("línea correcta", style="float: left; color:black"),
+        html.div(
+            html.div(
+                html.div(
+                    html.p("Esperado:", style="font-size: 10px; margin-top: 0;"),
+                    html.p("5" , style="font-size: 10px;"),
+                    style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px;"
+                ),
+                html.div(
+                    html.p("Obtenido:", style="font-size: 10px; margin-top: 0;"),
+                    html.p("5", style="font-size: 10px;"),
+                    style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px;"
+                ),
+                style="display: flex; justify-content: center; align-items: center;"
+            ),
+            style="float: center; display: flex; justify-content: center; align-items: center;"
+        ),
+        html.div(style="", class_="empty-div"),
+        style="overflow: auto; width: 100%; background-color: #e6e6e6;",
+        class_="extra"
+    )
+)
+
+
+
 
 def pytest_configure(config):
     config._metadata['test_descriptions'] = {}
 
 def pytest_html_results_table_header(cells):
-    cells.insert(2, html.th("Description"))
     cells.insert(1, html.th("Time", class_="sortable time", col="time"))
     cells.pop()
 
 def pytest_html_results_table_row(report, cells):
-    cells.insert(2, html.td(report.description))
     cells.insert(1, html.td(datetime.datetime.now(), class_="col-time"))
     cells.pop()
 
@@ -57,6 +83,7 @@ def pytest_runtest_makereport(item, call):
 def pytest_html_results_table_html(report, data):
    if report.passed:
     del data[:]
+    
     data.append(html.p(report.description +"\n"))
     test_name = report.nodeid.split("::")[-1]
     test_info = test_info_dict[test_name]
@@ -68,11 +95,11 @@ def pytest_html_results_table_html(report, data):
     table.append(tbody)
     thead.append(html.tr(html.th(test_info["name"])))
     first_line = True
-
     for line in test_info["source"]:
         if first_line:
             first_line = False
-        else:
+        elif "assert" in line:
             tbody.append(html.tr(html.td(line, class_="col-result", style="color: black")))
-            tbody.append(html.tr(html.td("la linea es correcta", class_="extra")))
-
+            tbody.append(assertStruc())            
+        else:
+            tbody.append(html.tr(html.td(line, style="color: black")))
