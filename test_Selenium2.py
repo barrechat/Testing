@@ -23,7 +23,7 @@ def setup_module(self):
 def test_Texto():
         """Esto es un test de comparacion de texto"""
         texto = driver.find_element(By.ID,"texto").text
-        assert texto == "Texto x"
+        assert texto == "Texto <"
 
 def test_Imagen():
         """Esto es un test de comparacion de ruta de origen de imagen"""
