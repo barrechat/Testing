@@ -18,7 +18,7 @@ errores = {
         "ImportError": " \nError al importar: Comprobar environment y un correcto import",
         "TimeoutError": " \nTiempo excedido: Verificar rendimiento y conectividad o ajusta el tiempo de la operación",
         "StopIteration": " \nIteraciones excedidas: Verificar que la estructura contenga elementos y sean validos",
-        "ERR_CONNECTION_REFUSED": " \nProblemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls",
+        "WebDriverException": " \nProblemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls",
     }
 numeroReporte = 0
 with open ('numeroReporte.txt','r') as numero:
@@ -194,6 +194,8 @@ def pytest_html_results_table_html(report, data):
         table.append(tbody)
         thead.append(html.tr(html.th(test_info["name"])))
         first_line = True
+        if "WebDriverException" in error[0]:
+            error[0] = error[0].split("(Session info:")[0]
         for line in test_info["source"]:
             if first_line:
                 first_line = False
@@ -202,3 +204,4 @@ def pytest_html_results_table_html(report, data):
                 tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1]))  
             else:
                 tbody.append(html.tr(html.td(line, style="color: black")))
+    
