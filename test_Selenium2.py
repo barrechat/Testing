@@ -20,17 +20,17 @@ def setup_module(self):
     
         
 
-def test_Texto():
+def test_Texto2():
         """Esto es un test de comparacion de texto"""
         texto = driver.find_element(By.ID,"texto").text
         assert texto == "Texto <"
 
-def test_Imagen():
+def test_Imagen2():
         """Esto es un test de comparacion de ruta de origen de imagen"""
         ruta = driver.find_element(By.ID,"imagen").get_attribute("src")
         assert ruta == "http://127.0.0.1:5500/img/selenium.png"
 
-def test_Boton():
+def test_Boton2():
         """Esto es un test de comparacion de boton disponible"""
         assert driver.find_element(By.ID,"boton").is_enabled()
 
