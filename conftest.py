@@ -21,6 +21,7 @@ errores = {
         "WebDriverException": " \nProblemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls",
     }
 numeroReporte = 0
+testcounter = 0
 with open ('numeroReporte.txt','r') as numero:
     contenido = numero.read()
     if contenido:
@@ -126,10 +127,14 @@ def pytest_configure(config):
 
 def pytest_html_results_table_header(cells):
     cells.insert(2, html.th("Time", class_="sortable time", col="time"))
+    cells.insert(0, html.th('#', class_="sortable active asc"))
     cells.pop()
 
 def pytest_html_results_table_row(report, cells):
+    global testcounter
     cells.insert(2, html.td(datetime.datetime.now(), class_="col-time"))
+    testcounter += 1
+    cells.insert(0, html.td(str(testcounter), id = f'test-{testcounter}'))
     cells.pop()
 
 def pytest_html_report_title(report):
@@ -142,8 +147,19 @@ def pytest_configure(config):
         numero.write(str(numeroReporte))
             
 def pytest_html_results_summary(prefix, summary, postfix):
-    prefix.extend([html.p("foo: bar")])
-
+    #num_executed_tests = int(str(summary[0]).split(" ")[0].split(">")[1])
+    #prueba =str(summary[13]).split(" ")[0]
+    #num_tests = num_executed_tests
+    count = 0
+    for element in summary:
+        if "span" in str(element):
+            count+= int(str(element).split(">")[1].split(" ")[0])
+    prefix.extend([
+        html.table(
+            [html.tr(html.th('#'), html.th('Test'))] +
+            [html.tr(html.td(i + 1), html.td(html.a(f'Test {i + 1}', href=f'#test-{i + 1}'))) for i in range(count)] 
+        )
+    ])
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield
