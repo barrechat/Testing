@@ -1,8 +1,9 @@
 
 import datetime
-import pytest
+import pytest, sys
 from py._xmlgen import *
-import test_HMI, test_Selenium, test_Selenium2
+sys.path.append('../')
+import tests.test_HMI as test_HMI, tests.test_Selenium as test_Selenium, tests.test_Selenium2 as test_Selenium2
 import inspect,ast
 from bs4 import BeautifulSoup
 modulos= [test_HMI,test_Selenium,test_Selenium2]
@@ -66,19 +67,19 @@ def assertStruc(esperado):
                 html.div(
                     html.p("Esperado:", style="font-size: 10px; margin-top: 0;"),
                     html.p(esperado , style="font-size: 10px;"),
-                    style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;"
+                    style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;", class_ = "resultado"
                 ),
                 html.div(
                     html.p("Obtenido:", style="font-size: 10px; margin-top: 0;"),
                     html.p(esperado, style="font-size: 10px;"),
-                    style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;"
+                    style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;", class_ = "resultado"
                 ),
                 style="display: flex; justify-content: center; align-items: center;"
             ),
             style="float: center; display: flex; justify-content: center; align-items: center;"
         ),
         html.div(style="", class_="empty-div"),
-        style="overflow: auto; width: 100%; background-color: #e6e6e6;",
+        style="overflow: auto; width: 100%; ",
         class_="extra"
     )
 )
@@ -91,19 +92,19 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado):
                 html.div(
                     html.p("Esperado:", style="font-size: 10px; margin-top: 0;"),
                     html.p(esperado , style="font-size: 10px;"),
-                    style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;"
+                    style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;", class_ = "resultado"
                 ),
                 html.div(
                     html.p("Obtenido:", style="font-size: 10px; margin-top: 0;"),
                     html.p(obtenido, style="font-size: 10px;"),
-                    style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;"
+                    style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;", class_ = "resultado"
                 ),
                 style="display: flex; justify-content: center; align-items: center;"
             ),
             style="float: center; display: flex; justify-content: center; align-items: center;"
         ),
         html.div(style="", class_="empty-div"),
-        style="overflow: auto; width: 100%; background-color: #e6e6e6;",
+        style="overflow: auto; width: 100%;",
         class_="extra"
     )
 )
@@ -134,7 +135,7 @@ def pytest_html_results_table_row(report, cells):
     global testcounter
     cells.insert(2, html.td(datetime.datetime.now(), class_="col-time"))
     testcounter += 1
-    cells.insert(0, html.td(str(testcounter), id = f'test-{testcounter}'))
+    cells.insert(0, html.td(str(testcounter), id = f'paso-{testcounter}'))
     cells.pop()
 
 def pytest_html_report_title(report):
@@ -147,17 +148,14 @@ def pytest_configure(config):
         numero.write(str(numeroReporte))
             
 def pytest_html_results_summary(prefix, summary, postfix):
-    #num_executed_tests = int(str(summary[0]).split(" ")[0].split(">")[1])
-    #prueba =str(summary[13]).split(" ")[0]
-    #num_tests = num_executed_tests
     count = 0
     for element in summary:
         if "span" in str(element):
             count+= int(str(element).split(">")[1].split(" ")[0])
     prefix.extend([
         html.table(
-            [html.tr(html.th('#'), html.th('Test'))] +
-            [html.tr(html.td(i + 1), html.td(html.a(f'Test {i + 1}', href=f'#test-{i + 1}'))) for i in range(count)] 
+            
+            [html.tr( html.td(html.a(f'Paso {i + 1}', href=f'#paso-{i + 1}'))) for i in range(count)] 
         )
     ])
 @pytest.hookimpl(hookwrapper=True)
@@ -175,7 +173,7 @@ def pytest_html_results_table_html(report, data):
         data.append(html.p(report.description +"\n"))
         test_name = report.nodeid.split("::")[-1]
         test_info = test_info_dict[test_name]
-        table = html.table(style ="width: 100%")
+        table = html.table(style ="width: 100%", class_ ="codigo")
         data.append(table)
         thead = html.thead()
         table.append(thead)
@@ -202,7 +200,7 @@ def pytest_html_results_table_html(report, data):
         data.append(html.p(report.description +"\n"))
         test_name = report.nodeid.split("::")[-1]
         test_info = test_info_dict[test_name]
-        table = html.table(style ="width: 100%")
+        table = html.table(style ="width: 100%" , class_ ="codigo")
         data.append(table)
         thead = html.thead()
         table.append(thead)

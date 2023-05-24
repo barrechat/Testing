@@ -253,12 +253,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>Reporte de ensallo</h1>
-    <p>Report generated on 24-May-2023 at 12:47:22 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 24-May-2023 at 18:49:51 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Numero Reporte</td>
-        <td>50</td></tr>
+        <td>135</td></tr>
       <tr>
         <td>Packages</td>
         <td>{"pluggy": "1.0.0", "pytest": "7.3.1"}</td></tr>
@@ -274,30 +274,20 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     <h2>Summary</h2>
     <table>
       <tr>
-        <th>#</th>
-        <th>Test</th></tr>
+        <td><a href="#paso-1">Paso 1</a></td></tr>
       <tr>
-        <td>1</td>
-        <td><a href="#test-1">Test 1</a></td></tr>
+        <td><a href="#paso-2">Paso 2</a></td></tr>
       <tr>
-        <td>2</td>
-        <td><a href="#test-2">Test 2</a></td></tr>
+        <td><a href="#paso-3">Paso 3</a></td></tr>
       <tr>
-        <td>3</td>
-        <td><a href="#test-3">Test 3</a></td></tr>
+        <td><a href="#paso-4">Paso 4</a></td></tr>
       <tr>
-        <td>4</td>
-        <td><a href="#test-4">Test 4</a></td></tr>
+        <td><a href="#paso-5">Paso 5</a></td></tr>
       <tr>
-        <td>5</td>
-        <td><a href="#test-5">Test 5</a></td></tr>
+        <td><a href="#paso-6">Paso 6</a></td></tr>
       <tr>
-        <td>6</td>
-        <td><a href="#test-6">Test 6</a></td></tr>
-      <tr>
-        <td>7</td>
-        <td><a href="#test-7">Test 7</a></td></tr></table>
-    <p>6 tests ran in 2.57 seconds. </p>
+        <td><a href="#paso-7">Paso 7</a></td></tr></table>
+    <p>6 tests ran in 2.62 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">5 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">1 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -312,16 +302,16 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th colspan="5">No results found. Try to check the filters</th></tr></thead>
       <tbody class="error results-table-row">
         <tr>
-          <td id="test-1">1</td>
+          <td id="paso-1">1</td>
           <td class="col-result">Error</td>
-          <td class="col-name">test_HMI.py::test_Desplegable::setup</td>
-          <td class="col-time">2023-05-24 12:47:21.999464</td>
-          <td class="col-duration">0.75</td></tr>
+          <td class="col-name">tests/test_HMI.py::test_Desplegable::setup</td>
+          <td class="col-time">2023-05-24 18:49:51.043209</td>
+          <td class="col-duration">0.79</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de visualizacion del desplegable
 </p>
-            <table style="width: 100%">
+            <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Desplegable</th></tr></thead>
@@ -339,31 +329,31 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: red">assert widthPlegado == &apos;width: 65px;&apos; and widthDesplegado == &apos;width: 100%;&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%; background-color: #e6e6e6;">
+                  <td class="extra" style="overflow: auto; width: 100%;">
                     <div style="float: left; color:black; max-width: 33.33%">
                       <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  </p>
                       <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p></div>
                     <div style="float: center; display: flex; justify-content: center; align-items: center;">
                       <div style="display: flex; justify-content: center; align-items: center;">
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
                           <p style="font-size: 10px;">error</p></div>
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
                           <p style="font-size: 10px;">error</p></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
-          <td id="test-5">5</td>
+          <td id="paso-5">5</td>
           <td class="col-result">Failed</td>
-          <td class="col-name">test_Selenium2.py::test_Texto2</td>
-          <td class="col-time">2023-05-24 12:47:22.004112</td>
-          <td class="col-duration">0.79</td></tr>
+          <td class="col-name">tests/test_Selenium2.py::test_Texto2</td>
+          <td class="col-time">2023-05-24 18:49:51.045601</td>
+          <td class="col-duration">0.77</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de comparacion de texto
 </p>
-            <table style="width: 100%">
+            <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Texto2</th></tr></thead>
@@ -373,31 +363,31 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: red">assert texto == &apos;Texto &lt;&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%; background-color: #e6e6e6;">
+                  <td class="extra" style="overflow: auto; width: 100%;">
                     <div style="float: left; color:black; max-width: 33.33%">
                       <p>ERROR: AssertionError: assert &apos;Texto x&apos; == &apos;Texto &lt;&apos;  </p>
                       <p> Fallo en el Assert: Comprobar valores en pagina web</p></div>
                     <div style="float: center; display: flex; justify-content: center; align-items: center;">
                       <div style="display: flex; justify-content: center; align-items: center;">
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
                           <p style="font-size: 10px;"> &apos;Texto &lt;&apos;  </p></div>
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
                           <p style="font-size: 10px;"> &apos;Texto x&apos; </p></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
-          <td id="test-2">2</td>
+          <td id="paso-2">2</td>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_Selenium.py::test_Texto</td>
-          <td class="col-time">2023-05-24 12:47:22.002681</td>
-          <td class="col-duration">0.77</td></tr>
+          <td class="col-name">tests/test_Selenium.py::test_Texto</td>
+          <td class="col-time">2023-05-24 18:49:51.045171</td>
+          <td class="col-duration">0.80</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de comparacion de texto
 </p>
-            <table style="width: 100%">
+            <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Texto</th></tr></thead>
@@ -407,29 +397,29 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: black">assert texto == &apos;Texto x&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%; background-color: #e6e6e6;">
+                  <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black">línea correcta</div>
                     <div style="float: center; display: flex; justify-content: center; align-items: center;">
                       <div style="display: flex; justify-content: center; align-items: center;">
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
                           <p style="font-size: 10px;"> &apos;Texto x&apos;</p></div>
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
                           <p style="font-size: 10px;"> &apos;Texto x&apos;</p></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
-          <td id="test-3">3</td>
+          <td id="paso-3">3</td>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_Selenium.py::test_Imagen</td>
-          <td class="col-time">2023-05-24 12:47:22.002982</td>
+          <td class="col-name">tests/test_Selenium.py::test_Imagen</td>
+          <td class="col-time">2023-05-24 18:49:51.045387</td>
           <td class="col-duration">0.01</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de comparacion de ruta de origen de imagen
 </p>
-            <table style="width: 100%">
+            <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Imagen</th></tr></thead>
@@ -439,29 +429,29 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: black">assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%; background-color: #e6e6e6;">
+                  <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black">línea correcta</div>
                     <div style="float: center; display: flex; justify-content: center; align-items: center;">
                       <div style="display: flex; justify-content: center; align-items: center;">
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
                           <p style="font-size: 10px;"> &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></div>
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
                           <p style="font-size: 10px;"> &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
-          <td id="test-4">4</td>
+          <td id="paso-4">4</td>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_Selenium.py::test_Boton</td>
-          <td class="col-time">2023-05-24 12:47:22.004010</td>
+          <td class="col-name">tests/test_Selenium.py::test_Boton</td>
+          <td class="col-time">2023-05-24 18:49:51.045490</td>
           <td class="col-duration">0.06</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de comparacion de boton disponible
 </p>
-            <table style="width: 100%">
+            <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Boton</th></tr></thead>
@@ -469,29 +459,29 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: black">assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%; background-color: #e6e6e6;">
+                  <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black">línea correcta</div>
                     <div style="float: center; display: flex; justify-content: center; align-items: center;">
                       <div style="display: flex; justify-content: center; align-items: center;">
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
                           <p style="font-size: 10px;">true</p></div>
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
                           <p style="font-size: 10px;">true</p></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
-          <td id="test-6">6</td>
+          <td id="paso-6">6</td>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_Selenium2.py::test_Imagen2</td>
-          <td class="col-time">2023-05-24 12:47:22.004696</td>
-          <td class="col-duration">0.02</td></tr>
+          <td class="col-name">tests/test_Selenium2.py::test_Imagen2</td>
+          <td class="col-time">2023-05-24 18:49:51.046207</td>
+          <td class="col-duration">0.01</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de comparacion de ruta de origen de imagen
 </p>
-            <table style="width: 100%">
+            <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Imagen2</th></tr></thead>
@@ -501,29 +491,29 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: black">assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%; background-color: #e6e6e6;">
+                  <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black">línea correcta</div>
                     <div style="float: center; display: flex; justify-content: center; align-items: center;">
                       <div style="display: flex; justify-content: center; align-items: center;">
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
                           <p style="font-size: 10px;"> &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></div>
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
                           <p style="font-size: 10px;"> &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
-          <td id="test-7">7</td>
+          <td id="paso-7">7</td>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_Selenium2.py::test_Boton2</td>
-          <td class="col-time">2023-05-24 12:47:22.004814</td>
-          <td class="col-duration">0.02</td></tr>
+          <td class="col-name">tests/test_Selenium2.py::test_Boton2</td>
+          <td class="col-time">2023-05-24 18:49:51.046292</td>
+          <td class="col-duration">0.06</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de comparacion de boton disponible
 </p>
-            <table style="width: 100%">
+            <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Boton2</th></tr></thead>
@@ -531,14 +521,14 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: black">assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%; background-color: #e6e6e6;">
+                  <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black">línea correcta</div>
                     <div style="float: center; display: flex; justify-content: center; align-items: center;">
                       <div style="display: flex; justify-content: center; align-items: center;">
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
                           <p style="font-size: 10px;">true</p></div>
-                        <div style="width: 60px; height: 60px; background-color: white; border: 2px solid #999999; margin: 10px; word-wrap: break-word;">
+                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
                           <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
                           <p style="font-size: 10px;">true</p></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody></table></body></html>
