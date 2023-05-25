@@ -181,15 +181,17 @@ def pytest_html_results_table_html(report, data):
         table.append(tbody)
         thead.append(html.tr(html.th(test_info["name"])))
         first_line = True
+        i=0
         for line in test_info["source"]:
             if first_line:
                 first_line = False
             elif "assert" in line:
                 valores = obtener_valores(line)
-                tbody.append(html.tr(html.td(line, class_="col-result", style="color: black")))
+                tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: black")))
                 tbody.append(assertStruc(valores[1]))            
             else:
-                tbody.append(html.tr(html.td(line, style="color: black")))
+                tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, style="color: black")))
+            i+= 1
     
     
     if report.failed:
@@ -208,14 +210,16 @@ def pytest_html_results_table_html(report, data):
         table.append(tbody)
         thead.append(html.tr(html.th(test_info["name"])))
         first_line = True
+        i=0
         if "WebDriverException" in error[0]:
             error[0] = error[0].split("(Session info:")[0]
         for line in test_info["source"]:
             if first_line:
                 first_line = False
             elif "assert" in line:
-                tbody.append(html.tr(html.td(line, class_="col-result", style="color: red")))
+                tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: red")))
                 tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1]))  
             else:
-                tbody.append(html.tr(html.td(line, style="color: black")))
+                tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, style="color: black")))
+            i+=1
     
