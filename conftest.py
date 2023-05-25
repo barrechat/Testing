@@ -5,6 +5,7 @@ from py._xmlgen import *
 sys.path.append('../')
 import tests.test_HMI as test_HMI, tests.test_Selenium as test_Selenium, tests.test_Selenium2 as test_Selenium2
 import inspect,ast
+from bs4 import BeautifulSoup
 modulos= [test_HMI,test_Selenium,test_Selenium2]
 test_info_dict ={}
 errores = {
