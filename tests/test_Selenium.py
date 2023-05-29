@@ -11,7 +11,6 @@ def setup_module(self):
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         options.add_argument('--no-sandbox')
-        options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=options)
         driver.implicitly_wait(30)
         driver.get("http://127.0.0.1:5500/comparacion.html")
