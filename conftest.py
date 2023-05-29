@@ -1,6 +1,7 @@
 
 import datetime
 import pytest, sys
+import getpass
 from py._xmlgen import *
 sys.path.append('../')
 import tests.test_HMI as test_HMI, tests.test_Selenium as test_Selenium, tests.test_Selenium2 as test_Selenium2
@@ -41,10 +42,38 @@ def get_test_info(test_function):
     return {
         'name': test_function.__name__,
         'docstring': test_function.__doc__,
-        'source': obtener_codigo_fuente(test_function)
+        'source': obtener_codigo_fuente(test_function),
+        'status': ""
         # Agrega aquí cualquier otra información que desees
     }
-
+def get_colores(str):
+    if str == "Passed":
+        return "green"
+    elif str == "Error" or str == "Failed" or str == "XPassed":
+        return "red"
+    else: return "orange"
+def get_status(report):
+    if report.passed:
+        if hasattr(report, "wasxfail"):
+               
+                return"XPassed"
+        else:
+                return "Passed"
+    if report.failed:
+        if getattr(report, "when", None) == "call":
+                if hasattr(report, "wasxfail"):
+                    # pytest < 3.0 marked xpasses as failures
+                    return"XPassed"
+                else:
+                    return"Failed"
+        else:
+                return "Error"
+    if report.skipped:
+        if hasattr(report, "wasxfail"):
+            return"XFailed"
+        else:
+            return "Skipped"
+        
 def obtener_valores(linea):
     if 'assert' in linea:
         if 'and' in linea:
@@ -109,8 +138,6 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado):
     )
 )
 
-
-
 def pytest_exception_interact(node, call, report):
     if report.failed:  # Solo modificar los mensajes de error para los tests que fallaron
         exception_type, exception_value, traceback = call.excinfo._excinfo
@@ -140,38 +167,61 @@ def pytest_html_results_table_row(report, cells):
 
 def pytest_html_report_title(report):
     report.title = "Reporte de ensayo"
+
 def pytest_configure(config):
     global numeroReporte
     numeroReporte = 1 + numeroReporte
+    config._metadata["User"] = getpass.getuser()
     config._metadata["Numero Reporte"] = numeroReporte
+    
     with open("numeroReporte.txt", "w") as numero:
         numero.write(str(numeroReporte))
-            
+    
 def pytest_html_results_summary(prefix, summary, postfix):
+    global test_name
     count = 0
-    for element in summary:
+    filtered = False
+    for i, element in enumerate(summary):
         if "span" in str(element):
             count+= int(str(element).split(">")[1].split(" ")[0])
+        
+        if "input" in str(element) and not filtered:
+            summary.insert(i, html.h2("Filters"))
+            filtered = True
+        
     prefix.extend([
     html.ul(
-        [html.li(html.a(f'Paso {i + 1}', href=f'#paso-{i + 1}')) for i in range(count)]
+        [
+            html.li(
+                html.p(html.a(
+                    f'Paso {i + 1}', href=f'#paso-{i + 1}', style="color: black"
+                ), f' {test_info_dict[test]["status"]}', style=f'color: {get_colores(test_info_dict[test]["status"])}')
+            )
+            for i, test in enumerate(test_info_dict)
+            
+        ]
     )
 ])
+
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield
     report = outcome.get_result()
     report.description = str(item.function.__doc__)
     test_name = item.function.__name__
-    test_info_dict[test_name] = get_test_info(item.function)
+    test_info = get_test_info(item.function)
+        
+    test_info_dict[test_name] = test_info
+
 
 def pytest_html_results_table_html(report, data):
-    if report.passed:
+    test_name = report.nodeid.split("::")[-1]
+    test_info = test_info_dict[test_name]
+    test_info["status"] = get_status(report)
+    if report.passed or report.skipped:
         del data[:]
         
         data.append(html.p(report.description +"\n"))
-        test_name = report.nodeid.split("::")[-1]
-        test_info = test_info_dict[test_name]
         table = html.table(style ="width: 100%", class_ ="codigo")
         data.append(table)
         thead = html.thead()
@@ -194,13 +244,13 @@ def pytest_html_results_table_html(report, data):
     
     
     if report.failed:
-        error = BeautifulSoup( str(data[0]), 'html.parser')
+        
+        error = BeautifulSoup(str(data[0]), 'html.parser')
+        
         error = error.find('div', class_ = 'log').get_text().split("@solucion")
         valores = obtener_valores(error[0])
         del data[:]
         data.append(html.p(report.description +"\n"))
-        test_name = report.nodeid.split("::")[-1]
-        test_info = test_info_dict[test_name]
         table = html.table(style ="width: 100%" , class_ ="codigo")
         data.append(table)
         thead = html.thead()

@@ -9,8 +9,9 @@ from selenium.webdriver.common.by import By
 def setup_module(self):
         global driver 
         options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
+        options.add_argument('--headless')
         options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=options)
         driver.implicitly_wait(30)
         driver.get("http://192.168.1.136/")
