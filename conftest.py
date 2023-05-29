@@ -139,7 +139,7 @@ def pytest_html_results_table_row(report, cells):
     cells.pop()
 
 def pytest_html_report_title(report):
-    report.title = "Reporte de ensallo"
+    report.title = "Reporte de ensayo"
 def pytest_configure(config):
     global numeroReporte
     numeroReporte = 1 + numeroReporte
@@ -153,11 +153,10 @@ def pytest_html_results_summary(prefix, summary, postfix):
         if "span" in str(element):
             count+= int(str(element).split(">")[1].split(" ")[0])
     prefix.extend([
-        html.table(
-            
-            [html.tr( html.td(html.a(f'Paso {i + 1}', href=f'#paso-{i + 1}'))) for i in range(count)] 
-        )
-    ])
+    html.ul(
+        [html.li(html.a(f'Paso {i + 1}', href=f'#paso-{i + 1}')) for i in range(count)]
+    )
+])
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield
