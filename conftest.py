@@ -44,7 +44,6 @@ def get_test_info(test_function):
         'docstring': test_function.__doc__,
         'source': obtener_codigo_fuente(test_function),
         'status': ""
-        # Agrega aquí cualquier otra información que desees
     }
 def get_colores(str):
     if str == "Passed":
@@ -62,7 +61,6 @@ def get_status(report):
     if report.failed:
         if getattr(report, "when", None) == "call":
                 if hasattr(report, "wasxfail"):
-                    # pytest < 3.0 marked xpasses as failures
                     return"XPassed"
                 else:
                     return"Failed"
@@ -92,20 +90,32 @@ def assertStruc(esperado):
     html.td(
         html.div("línea correcta", style="float: left; color:black"),
         html.div(
+    html.div(
+        html.p("Valores del Assert", style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;"),
+        html.div(
             html.div(
-                html.div(
-                    html.p("Esperado:", style="font-size: 10px; margin-top: 0;"),
-                    html.p(esperado , style="font-size: 10px;"),
-                    style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;", class_ = "resultado"
+                        html.p("Esperado:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
+                        html.div(
+                            html.p(esperado, style="font-size: 10px;"),
+                            style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ",
+                            class_="resultado"
+                        ),
+                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
+                    ),
+                    html.div(
+                        html.p("Obtenido:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
+                        html.div(
+                            html.p(esperado, style="font-size: 10px;"),
+                            style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;",
+                            class_="resultado"
+                        ),
+                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
+                    ),
+                    style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;"
                 ),
-                html.div(
-                    html.p("Obtenido:", style="font-size: 10px; margin-top: 0;"),
-                    html.p(esperado, style="font-size: 10px;"),
-                    style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;", class_ = "resultado"
-                ),
-                style="display: flex; justify-content: center; align-items: center;"
+                style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
             ),
-            style="float: center; display: flex; justify-content: center; align-items: center;"
+            style="float: center; display: flex; justify-content: center; align-items: center; "
         ),
         html.div(style="", class_="empty-div"),
         style="overflow: auto; width: 100%; ",
@@ -116,27 +126,41 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado):
     return html.tr(
     html.td(
         html.div(html.p(valoreserror),html.p(solucionerror), style="float: left; color:black; max-width: 33.33%"),
+      
+        html.div(
+    html.div(
+        html.p("Valores del Assert", style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;"),
         html.div(
             html.div(
-                html.div(
-                    html.p("Esperado:", style="font-size: 10px; margin-top: 0;"),
-                    html.p(esperado , style="font-size: 10px;"),
-                    style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;", class_ = "resultado"
+                        html.p("Esperado:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
+                        html.div(
+                            html.p(esperado, style="font-size: 10px;"),
+                            style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ",
+                            class_="resultado"
+                        ),
+                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
+                    ),
+                    html.div(
+                        html.p("Obtenido:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
+                        html.div(
+                            html.p(obtenido, style="font-size: 10px;"),
+                            style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;",
+                            class_="resultado"
+                        ),
+                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
+                    ),
+                    style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;"
                 ),
-                html.div(
-                    html.p("Obtenido:", style="font-size: 10px; margin-top: 0;"),
-                    html.p(obtenido, style="font-size: 10px;"),
-                    style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;", class_ = "resultado"
-                ),
-                style="display: flex; justify-content: center; align-items: center;"
+                style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
             ),
-            style="float: center; display: flex; justify-content: center; align-items: center;"
+            style="float: center; display: flex; justify-content: center; align-items: center; "
         ),
         html.div(style="", class_="empty-div"),
-        style="overflow: auto; width: 100%;",
+        style="overflow: auto; width: 100%; ",
         class_="extra"
     )
 )
+
 
 def pytest_exception_interact(node, call, report):
     if report.failed:  # Solo modificar los mensajes de error para los tests que fallaron
@@ -155,14 +179,19 @@ def pytest_configure(config):
 
 def pytest_html_results_table_header(cells):
     cells.insert(2, html.th("Time", class_="sortable time", col="time"))
-    cells.insert(0, html.th('#', class_="sortable active asc"))
+    cells.insert(0, html.th('#', class_="sortable int", col='int'))
     cells.pop()
 
 def pytest_html_results_table_row(report, cells):
     global testcounter
     cells.insert(2, html.td(datetime.datetime.now(), class_="col-time"))
     testcounter += 1
-    cells.insert(0, html.td(str(testcounter), id = f'paso-{testcounter}'))
+    if(testcounter>9):
+        cells.insert(0, html.td("0"+str(testcounter), id = f'paso-{testcounter}'))
+    elif(testcounter>99):
+        cells.insert(0, html.td(""+str(testcounter), id = f'paso-{testcounter}'))
+    elif(testcounter>0):
+        cells.insert(0, html.td("00"+str(testcounter), id = f'paso-{testcounter}'))
     cells.pop()
 
 def pytest_html_report_title(report):
@@ -217,8 +246,9 @@ def pytest_runtest_makereport(item, call):
 def pytest_html_results_table_html(report, data):
     test_name = report.nodeid.split("::")[-1]
     test_info = test_info_dict[test_name]
-    test_info["status"] = get_status(report)
-    if report.passed or report.skipped:
+    status = get_status(report)
+    test_info["status"]  = status
+    if status == "Passed" or status =="Skipped" or status == "XFailed":
         del data[:]
         
         data.append(html.p(report.description +"\n"))
@@ -230,6 +260,7 @@ def pytest_html_results_table_html(report, data):
         table.append(tbody)
         thead.append(html.tr(html.th(test_info["name"])))
         first_line = True
+        asserted = False
         i=0
         for line in test_info["source"]:
             if first_line:
@@ -238,16 +269,23 @@ def pytest_html_results_table_html(report, data):
                 valores = obtener_valores(line)
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: black")))
                 tbody.append(assertStruc(valores[1]))            
+                asserted =True
             else:
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, style="color: black")))
             i+= 1
+        if not asserted:
+            tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " No hay assert", class_="col-result", style="color: black")))
+            tbody.append(assertStruc("Skipped"))    
     
     
-    if report.failed:
+    if status == "Failed" or status == "Error" or status == "XPassed":
         
         error = BeautifulSoup(str(data[0]), 'html.parser')
         
         error = error.find('div', class_ = 'log').get_text().split("@solucion")
+        if error[0] == "No log output captured.":
+            error =["UnexpectedPass", "Fallo desconocido, test deberia fallar"]
+
         valores = obtener_valores(error[0])
         del data[:]
         data.append(html.p(report.description +"\n"))
@@ -259,6 +297,7 @@ def pytest_html_results_table_html(report, data):
         table.append(tbody)
         thead.append(html.tr(html.th(test_info["name"])))
         first_line = True
+        asserted = False
         i=0
         if "WebDriverException" in error[0]:
             error[0] = error[0].split("(Session info:")[0]
@@ -267,8 +306,14 @@ def pytest_html_results_table_html(report, data):
                 first_line = False
             elif "assert" in line:
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: red")))
+                print(error, valores, test_name)
                 tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1]))  
+                asserted = True
             else:
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, style="color: black")))
             i+=1
+
+        if not asserted:
+             tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " No hay assert", class_="col-result", style="color: black")))
+             tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1]))  
     

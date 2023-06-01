@@ -253,12 +253,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>Reporte de ensayo</h1>
-    <p>Report generated on 29-May-2023 at 14:04:17 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 01-Jun-2023 at 17:16:46 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Numero Reporte</td>
-        <td>231</td></tr>
+        <td>306</td></tr>
       <tr>
         <td>Packages</td>
         <td>{"pluggy": "1.0.0", "pytest": "7.3.1"}</td></tr>
@@ -279,17 +279,17 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <li>
         <p style="color: red"><a href="#paso-1" style="color: black">Paso 1</a> Error</p></li>
       <li>
-        <p style="color: red"><a href="#paso-2" style="color: black">Paso 2</a> Error</p></li>
+        <p style="color: green"><a href="#paso-2" style="color: black">Paso 2</a> Passed</p></li>
       <li>
-        <p style="color: red"><a href="#paso-3" style="color: black">Paso 3</a> Error</p></li>
+        <p style="color: green"><a href="#paso-3" style="color: black">Paso 3</a> Passed</p></li>
       <li>
-        <p style="color: red"><a href="#paso-4" style="color: black">Paso 4</a> Error</p></li>
+        <p style="color: green"><a href="#paso-4" style="color: black">Paso 4</a> Passed</p></li>
       <li>
-        <p style="color: red"><a href="#paso-5" style="color: black">Paso 5</a> Error</p></li>
+        <p style="color: red"><a href="#paso-5" style="color: black">Paso 5</a> Failed</p></li>
       <li>
-        <p style="color: red"><a href="#paso-6" style="color: black">Paso 6</a> Error</p></li>
+        <p style="color: green"><a href="#paso-6" style="color: black">Paso 6</a> Passed</p></li>
       <li>
-        <p style="color: red"><a href="#paso-7" style="color: black">Paso 7</a> Error</p></li>
+        <p style="color: green"><a href="#paso-7" style="color: black">Paso 7</a> Passed</p></li>
       <li>
         <p style="color: green"><a href="#paso-8" style="color: black">Paso 8</a> Passed</p></li>
       <li>
@@ -300,14 +300,14 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <p style="color: orange"><a href="#paso-11" style="color: black">Paso 11</a> XFailed</p></li>
       <li>
         <p style="color: red"><a href="#paso-12" style="color: black">Paso 12</a> XPassed</p></li></ul>
-    <p>4 tests ran in 2.10 seconds. </p>
+    <p>10 tests ran in 2.29 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
-    <h2>Filters</h2><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">1 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">7 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">1 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">1 unexpected passes</span>
+    <h2>Filters</h2><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">6 passed</span>, <input checked="true" class="filter" data-test-result="skipped" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">1 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">1 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">1 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">1 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
         <tr>
-          <th class="sortable active asc">#</th>
+          <th class="sortable int" col="int">#</th>
           <th class="sortable result initial-sort" col="result">Result</th>
           <th class="sortable" col="name">Test</th>
           <th class="sortable time" col="time">Time</th>
@@ -316,11 +316,11 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th colspan="5">No results found. Try to check the filters</th></tr></thead>
       <tbody class="error results-table-row">
         <tr>
-          <td id="paso-1">1</td>
+          <td id="paso-1">001</td>
           <td class="col-result">Error</td>
           <td class="col-name">tests/test_HMI.py::test_Desplegable::setup</td>
-          <td class="col-time">2023-05-29 14:04:17.171725</td>
-          <td class="col-duration">0.60</td></tr>
+          <td class="col-time">2023-06-01 17:16:46.434843</td>
+          <td class="col-duration">0.67</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de visualizacion del desplegable
@@ -343,126 +343,30 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: red">1.6 assert widthPlegado == &apos;width: 65px;&apos; and widthDesplegado == &apos;width: 100%;&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
+                  <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black; max-width: 33.33%">
-                      <p>ERROR: WebDriverException: Message: unknown error: Chrome failed to start: crashed.  (unknown error: DevToolsActivePort file doesn&apos;t exist)  (The process started from chrome location /usr/bin/google</p>
+                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  </p>
                       <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p></div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">error</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">error</p></div></div></div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;">error</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;">error</p></div></div></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
+      <tbody class="failed results-table-row">
         <tr>
-          <td id="paso-2">2</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/test_Selenium.py::test_Texto::setup</td>
-          <td class="col-time">2023-05-29 14:04:17.172909</td>
-          <td class="col-duration">0.59</td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <p>Esto es un test de comparacion de texto
-</p>
-            <table class="codigo" style="width: 100%">
-              <thead>
-                <tr>
-                  <th>test_Texto</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td style="color: black">2.1 texto = driver.find_element(By.ID, &apos;texto&apos;).text</td></tr>
-                <tr>
-                  <td class="col-result" style="color: red">2.2 assert texto == &apos;Texto x&apos;</td></tr>
-                <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; max-width: 33.33%">
-                      <p>ERROR: WebDriverException: Message: unknown error: Chrome failed to start: crashed.  (unknown error: DevToolsActivePort file doesn&apos;t exist)  (The process started from chrome location /usr/bin/google</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p></div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">error</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">error</p></div></div></div>
-                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td id="paso-3">3</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/test_Selenium.py::test_Imagen::setup</td>
-          <td class="col-time">2023-05-29 14:04:17.173418</td>
-          <td class="col-duration">0.00</td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <p>Esto es un test de comparacion de ruta de origen de imagen
-</p>
-            <table class="codigo" style="width: 100%">
-              <thead>
-                <tr>
-                  <th>test_Imagen</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td style="color: black">3.1 ruta = driver.find_element(By.ID, &apos;imagen&apos;).get_attribute(&apos;src&apos;)</td></tr>
-                <tr>
-                  <td class="col-result" style="color: red">3.2 assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</td></tr>
-                <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; max-width: 33.33%">
-                      <p>ERROR: WebDriverException: Message: unknown error: Chrome failed to start: crashed.  (unknown error: DevToolsActivePort file doesn&apos;t exist)  (The process started from chrome location /usr/bin/google</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p></div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">error</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">error</p></div></div></div>
-                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td id="paso-4">4</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/test_Selenium.py::test_Boton::setup</td>
-          <td class="col-time">2023-05-29 14:04:17.173906</td>
-          <td class="col-duration">0.00</td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <p>Esto es un test de comparacion de boton disponible
-</p>
-            <table class="codigo" style="width: 100%">
-              <thead>
-                <tr>
-                  <th>test_Boton</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td class="col-result" style="color: red">4.1 assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</td></tr>
-                <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; max-width: 33.33%">
-                      <p>ERROR: WebDriverException: Message: unknown error: Chrome failed to start: crashed.  (unknown error: DevToolsActivePort file doesn&apos;t exist)  (The process started from chrome location /usr/bin/google</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p></div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">error</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">error</p></div></div></div>
-                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td id="paso-5">5</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/test_Selenium2.py::test_Texto2::setup</td>
-          <td class="col-time">2023-05-29 14:04:17.174385</td>
-          <td class="col-duration">0.59</td></tr>
+          <td id="paso-5">005</td>
+          <td class="col-result">Failed</td>
+          <td class="col-name">tests/test_Selenium2.py::test_Texto2</td>
+          <td class="col-time">2023-06-01 17:16:46.436957</td>
+          <td class="col-duration">0.67</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p>Esto es un test de comparacion de texto
@@ -477,91 +381,29 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: red">5.2 assert texto == &apos;Texto &lt;&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
+                  <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black; max-width: 33.33%">
-                      <p>ERROR: WebDriverException: Message: unknown error: Chrome failed to start: crashed.  (unknown error: DevToolsActivePort file doesn&apos;t exist)  (The process started from chrome location /usr/bin/google</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p></div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">error</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">error</p></div></div></div>
-                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td id="paso-6">6</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/test_Selenium2.py::test_Imagen2::setup</td>
-          <td class="col-time">2023-05-29 14:04:17.174923</td>
-          <td class="col-duration">0.00</td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <p>Esto es un test de comparacion de ruta de origen de imagen
-</p>
-            <table class="codigo" style="width: 100%">
-              <thead>
-                <tr>
-                  <th>test_Imagen2</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td style="color: black">6.1 ruta = driver.find_element(By.ID, &apos;imagen&apos;).get_attribute(&apos;src&apos;)</td></tr>
-                <tr>
-                  <td class="col-result" style="color: red">6.2 assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</td></tr>
-                <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; max-width: 33.33%">
-                      <p>ERROR: WebDriverException: Message: unknown error: Chrome failed to start: crashed.  (unknown error: DevToolsActivePort file doesn&apos;t exist)  (The process started from chrome location /usr/bin/google</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p></div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">error</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">error</p></div></div></div>
-                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td id="paso-7">7</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/test_Selenium2.py::test_Boton2::setup</td>
-          <td class="col-time">2023-05-29 14:04:17.175300</td>
-          <td class="col-duration">0.00</td></tr>
-        <tr>
-          <td class="extra" colspan="5">
-            <p>Esto es un test de comparacion de boton disponible
-</p>
-            <table class="codigo" style="width: 100%">
-              <thead>
-                <tr>
-                  <th>test_Boton2</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td class="col-result" style="color: red">7.1 assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</td></tr>
-                <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; max-width: 33.33%">
-                      <p>ERROR: WebDriverException: Message: unknown error: Chrome failed to start: crashed.  (unknown error: DevToolsActivePort file doesn&apos;t exist)  (The process started from chrome location /usr/bin/google</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p></div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">error</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">error</p></div></div></div>
+                      <p>ERROR: AssertionError: assert &apos;Texto x&apos; == &apos;Texto &lt;&apos;  </p>
+                      <p> Fallo en el Assert: Comprobar valores en pagina web</p></div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;"> &apos;Texto &lt;&apos;  </p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;"> &apos;Texto x&apos; </p></div></div></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
-          <td id="paso-9">9</td>
+          <td id="paso-9">009</td>
           <td class="col-result">Failed</td>
           <td class="col-name">tests/test_Tontos.py::test_Failed</td>
-          <td class="col-time">2023-05-29 14:04:17.175748</td>
+          <td class="col-time">2023-06-01 17:16:46.437782</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
@@ -575,57 +417,103 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="col-result" style="color: red">9.1 assert False</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
+                  <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black; max-width: 33.33%">
                       <p>ERROR: AssertionError: assert False</p>
                       <p> Fallo en el Assert: Comprobar valores en pagina web</p></div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">true</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">false</p></div></div></div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;">true</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;">false</p></div></div></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="xfailed results-table-row">
         <tr>
-          <td id="paso-11">11</td>
+          <td id="paso-11">011</td>
           <td class="col-result">XFailed</td>
           <td class="col-name">tests/test_Tontos.py::test_Xfail</td>
-          <td class="col-time">2023-05-29 14:04:17.176211</td>
+          <td class="col-time">2023-06-01 17:16:46.438391</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <p>None
+            <p>test fallo esperado
 </p>
             <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Xfail</th></tr></thead>
-              <tbody></tbody></table></td></tr></tbody>
+              <tbody>
+                <tr>
+                  <td style="color: black">11.1 hola = 1 + 1</td></tr>
+                <tr>
+                  <td class="col-result" style="color: black">11.2 assert False</td></tr>
+                <tr>
+                  <td class="extra" style="overflow: auto; width: 100%; ">
+                    <div style="float: left; color:black">línea correcta</div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;">true</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;">true</p></div></div></div></div></div>
+                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="xpassed results-table-row">
         <tr>
-          <td id="paso-12">12</td>
+          <td id="paso-12">012</td>
           <td class="col-result">XPassed</td>
           <td class="col-name">tests/test_Tontos.py::test_Upasses</td>
-          <td class="col-time">2023-05-29 14:04:17.176276</td>
+          <td class="col-time">2023-06-01 17:16:46.438509</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <p>None
+            <p>test acierto inesperado
 </p>
             <table class="codigo" style="width: 100%">
               <thead>
                 <tr>
                   <th>test_Upasses</th></tr></thead>
-              <tbody></tbody></table></td></tr></tbody>
+              <tbody>
+                <tr>
+                  <td style="color: black">12.1 adios = 2</td></tr>
+                <tr>
+                  <td class="col-result" style="color: red">12.2 assert True</td></tr>
+                <tr>
+                  <td class="extra" style="overflow: auto; width: 100%; ">
+                    <div style="float: left; color:black; max-width: 33.33%">
+                      <p>UnexpectedPass</p>
+                      <p>Fallo desconocido, test deberia fallar</p></div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;">error</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;">error</p></div></div></div></div></div>
+                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="skipped results-table-row">
         <tr>
-          <td id="paso-10">10</td>
+          <td id="paso-10">010</td>
           <td class="col-result">Skipped</td>
           <td class="col-name">tests/test_Tontos.py::test_Skipped</td>
-          <td class="col-time">2023-05-29 14:04:17.176064</td>
+          <td class="col-time">2023-06-01 17:16:46.438167</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
@@ -637,13 +525,207 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                   <th>test_Skipped</th></tr></thead>
               <tbody>
                 <tr>
-                  <td style="color: black">10.1 pass</td></tr></tbody></table></td></tr></tbody>
+                  <td style="color: black">10.1 pass</td></tr>
+                <tr>
+                  <td class="col-result" style="color: black">10.2 No hay assert</td></tr>
+                <tr>
+                  <td class="extra" style="overflow: auto; width: 100%; ">
+                    <div style="float: left; color:black">línea correcta</div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;">Skipped</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;">Skipped</p></div></div></div></div></div>
+                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
-          <td id="paso-8">8</td>
+          <td id="paso-2">002</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_Selenium.py::test_Texto</td>
+          <td class="col-time">2023-06-01 17:16:46.436550</td>
+          <td class="col-duration">0.68</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <p>Esto es un test de comparacion de texto
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_Texto</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td style="color: black">2.1 texto = driver.find_element(By.ID, &apos;texto&apos;).text</td></tr>
+                <tr>
+                  <td class="col-result" style="color: black">2.2 assert texto == &apos;Texto x&apos;</td></tr>
+                <tr>
+                  <td class="extra" style="overflow: auto; width: 100%; ">
+                    <div style="float: left; color:black">línea correcta</div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;"> &apos;Texto x&apos;</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;"> &apos;Texto x&apos;</p></div></div></div></div></div>
+                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td id="paso-3">003</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_Selenium.py::test_Imagen</td>
+          <td class="col-time">2023-06-01 17:16:46.436643</td>
+          <td class="col-duration">0.01</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <p>Esto es un test de comparacion de ruta de origen de imagen
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_Imagen</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td style="color: black">3.1 ruta = driver.find_element(By.ID, &apos;imagen&apos;).get_attribute(&apos;src&apos;)</td></tr>
+                <tr>
+                  <td class="col-result" style="color: black">3.2 assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</td></tr>
+                <tr>
+                  <td class="extra" style="overflow: auto; width: 100%; ">
+                    <div style="float: left; color:black">línea correcta</div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;"> &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;"> &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></div></div></div></div></div>
+                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td id="paso-4">004</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_Selenium.py::test_Boton</td>
+          <td class="col-time">2023-06-01 17:16:46.436729</td>
+          <td class="col-duration">0.06</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <p>Esto es un test de comparacion de boton disponible
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_Boton</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="col-result" style="color: black">4.1 assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</td></tr>
+                <tr>
+                  <td class="extra" style="overflow: auto; width: 100%; ">
+                    <div style="float: left; color:black">línea correcta</div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;">true</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;">true</p></div></div></div></div></div>
+                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td id="paso-6">006</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_Selenium2.py::test_Imagen2</td>
+          <td class="col-time">2023-06-01 17:16:46.437508</td>
+          <td class="col-duration">0.01</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <p>Esto es un test de comparacion de ruta de origen de imagen
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_Imagen2</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td style="color: black">6.1 ruta = driver.find_element(By.ID, &apos;imagen&apos;).get_attribute(&apos;src&apos;)</td></tr>
+                <tr>
+                  <td class="col-result" style="color: black">6.2 assert ruta == &apos;http://127.0.0.1:5500/img/selenium.png&apos;</td></tr>
+                <tr>
+                  <td class="extra" style="overflow: auto; width: 100%; ">
+                    <div style="float: left; color:black">línea correcta</div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;"> &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;"> &apos;http://127.0.0.1:5500/img/selenium.png&apos;</p></div></div></div></div></div>
+                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td id="paso-7">007</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_Selenium2.py::test_Boton2</td>
+          <td class="col-time">2023-06-01 17:16:46.437594</td>
+          <td class="col-duration">0.06</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <p>Esto es un test de comparacion de boton disponible
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_Boton2</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="col-result" style="color: black">7.1 assert driver.find_element(By.ID, &apos;boton&apos;).is_enabled()</td></tr>
+                <tr>
+                  <td class="extra" style="overflow: auto; width: 100%; ">
+                    <div style="float: left; color:black">línea correcta</div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;">true</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;">true</p></div></div></div></div></div>
+                    <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td id="paso-8">008</td>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/test_Tontos.py::test_passed</td>
-          <td class="col-time">2023-05-29 14:04:17.175650</td>
+          <td class="col-time">2023-06-01 17:16:46.437680</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
@@ -659,12 +741,16 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td class="extra" style="overflow: auto; width: 100%; ">
                     <div style="float: left; color:black">línea correcta</div>
-                    <div style="float: center; display: flex; justify-content: center; align-items: center;">
-                      <div style="display: flex; justify-content: center; align-items: center;">
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Esperado:</p>
-                          <p style="font-size: 10px;">true</p></div>
-                        <div class="resultado" style="width: 60px; height: 60px; margin: 10px; word-wrap: break-word;">
-                          <p style="font-size: 10px; margin-top: 0;">Obtenido:</p>
-                          <p style="font-size: 10px;">true</p></div></div></div>
+                    <div style="float: center; display: flex; justify-content: center; align-items: center; ">
+                      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <p style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;">Valores del Assert</p>
+                        <div style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;">
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
+                              <p style="font-size: 10px;">true</p></div></div>
+                          <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                            <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
+                            <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
+                              <p style="font-size: 10px;">true</p></div></div></div></div></div>
                     <div class="empty-div" style=""></div></td></tr></tbody></table></td></tr></tbody></table></body></html>
