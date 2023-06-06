@@ -7,6 +7,9 @@ sys.path.append('../')
 import tests.test_HMI as test_HMI, tests.test_Selenium as test_Selenium, tests.test_Selenium2 as test_Selenium2
 import inspect,ast
 from bs4 import BeautifulSoup
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
 modulos= [test_HMI,test_Selenium,test_Selenium2]
 test_info_dict ={}
 errores = {
@@ -38,12 +41,13 @@ def obtener_codigo_fuente(func):
     lineas = cuerpo_funcion.split('\n')
     return lineas
 
-def get_test_info(test_function):
+def get_test_info(test_function, ):
     return {
         'name': test_function.__name__,
         'docstring': test_function.__doc__,
         'source': obtener_codigo_fuente(test_function),
-        'status': ""
+        'status': "",
+        'captura': f"tests/capturas/{test_function.__name__}.png"
     }
 def get_colores(str):
     if str == "Passed":
@@ -85,11 +89,10 @@ def obtener_valores(linea):
             valores = ["error","error"]
     return valores
 ## estructura detalles assert
-def assertStruc(esperado):
+def assertStruc(esperado, captura):
     return html.tr(
     html.td(
-        html.div("línea correcta", style="float: left; color:black"),
-        html.div(
+        html.div("línea correcta",html.div(
     html.div(
         html.p("Valores del Assert", style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;"),
         html.div(
@@ -116,18 +119,18 @@ def assertStruc(esperado):
                 style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
             ),
             style="float: center; display: flex; justify-content: center; align-items: center; "
-        ),
-        html.div(style="", class_="empty-div"),
+        ), style="float: left; color:black"),
+        
+        html.div(html.img(src= captura),style=""),
         style="overflow: auto; width: 100%; ",
         class_="extra"
     )
 )
-def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado):
+def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
     return html.tr(
     html.td(
-        html.div(html.p(valoreserror),html.p(solucionerror), style="float: left; color:black; max-width: 33.33%"),
-      
-        html.div(
+        html.div(html.p(valoreserror),html.p(solucionerror), 
+    html.div(
     html.div(
         html.p("Valores del Assert", style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;"),
         html.div(
@@ -154,8 +157,8 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado):
                 style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
             ),
             style="float: center; display: flex; justify-content: center; align-items: center; "
-        ),
-        html.div(style="", class_="empty-div"),
+        ), style="float: left; color:black; max-width: 33.33%"),
+        html.div(html.img(src=captura),style=""),
         style="overflow: auto; width: 100%; ",
         class_="extra"
     )
@@ -165,6 +168,7 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado):
 
 
 def pytest_exception_interact(node, call, report):
+    global test_name
     if report.failed:  # Solo modificar los mensajes de error para los tests que fallaron
         exception_type, exception_value, traceback = call.excinfo._excinfo
         # Aquí puedes personalizar el mensaje de error según tus necesidades
@@ -247,9 +251,9 @@ def pytest_runtest_makereport(item, call):
     report = outcome.get_result()
     report.description = str(item.function.__doc__)
     test_name = item.function.__name__
-    test_info = get_test_info(item.function)
-        
-    test_info_dict[test_name] = test_info
+    test_info_dict[test_name] = get_test_info(item.function)
+    
+     
 
 
 def pytest_html_results_table_html(report, data):
@@ -277,14 +281,14 @@ def pytest_html_results_table_html(report, data):
             elif "assert" in line:
                 valores = obtener_valores(line)
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: black")))
-                tbody.append(assertStruc(valores[1]))            
+                tbody.append(assertStruc(valores[1],test_info["captura"]))            
                 asserted =True
             else:
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, style="color: black")))
             i+= 1
         if not asserted:
             tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " No hay assert", class_="col-result", style="color: black")))
-            tbody.append(assertStruc("Skipped"))    
+            tbody.append(assertStruc("Skipped",test_info["captura"]))    
     
     
     if status == "Failed" or status == "Error" or status == "XPassed":
@@ -316,7 +320,7 @@ def pytest_html_results_table_html(report, data):
             elif "assert" in line:
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: red")))
                 print(error, valores, test_name)
-                tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1]))  
+                tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1],test_info["captura"]))  
                 asserted = True
             else:
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, style="color: black")))

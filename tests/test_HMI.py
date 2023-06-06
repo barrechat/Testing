@@ -9,9 +9,7 @@ from selenium.webdriver.common.by import By
 def setup_module(self):
         global driver 
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
+        #options.add_argument('--headless')
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=options)
         driver.implicitly_wait(30)
         driver.get("http://192.168.1.136/")
@@ -26,4 +24,8 @@ def test_Desplegable():
         assert widthPlegado == "width: 65px;" and widthDesplegado == "width: 100%;"
 
 def teardown_module():
-    driver.quit()
+        test_name = pytest.current_testname()
+        screenshot_name = f"tests/capturas/hola.png"
+        driver.save_screenshot(screenshot_name)
+        driver.quit()
+

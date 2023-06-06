@@ -6,12 +6,10 @@ from selenium.webdriver.common.by import By
 
 
 
-def setup_module(self):
+def setup_module():
         global driver 
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=options)
         driver.implicitly_wait(30)
         driver.get("http://127.0.0.1:5500/comparacion.html")
@@ -34,5 +32,8 @@ def test_Boton2():
 
 
 def teardown_module():
+        test_name = pytest.current_testname()
+        screenshot_name = f"tests/capturas/{test_name}.png"
+        driver.save_screenshot(screenshot_name)
         driver.quit()
 
