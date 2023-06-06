@@ -162,6 +162,8 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado):
 )
 
 
+
+
 def pytest_exception_interact(node, call, report):
     if report.failed:  # Solo modificar los mensajes de error para los tests que fallaron
         exception_type, exception_value, traceback = call.excinfo._excinfo
@@ -211,13 +213,19 @@ def pytest_html_results_summary(prefix, summary, postfix):
     count = 0
     filtered = False
     for i, element in enumerate(summary):
+        if ", " == element:
+            summary.remove(element)
+            summary.insert(i,html.br())
         if "span" in str(element):
-            count+= int(str(element).split(">")[1].split(" ")[0])
-        
-        if "input" in str(element) and not filtered:
-            summary.insert(i, html.h2("Filters"))
-            filtered = True
-        
+            count += int(str(element).split(">")[1].split(" ")[0])
+            
+
+        if "input" in str(element):
+            if not filtered:
+                # Guardar la posición para insertar el elemento <h2> "Filters"
+                Title_position = i
+                filtered = True
+
     prefix.extend([
     html.ul(
         [
@@ -231,6 +239,7 @@ def pytest_html_results_summary(prefix, summary, postfix):
         ]
     )
 ])
+    summary.insert(Title_position, html.h2("Filters"))
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
