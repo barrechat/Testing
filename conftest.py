@@ -47,7 +47,7 @@ def get_test_info(test_function, ):
         'docstring': test_function.__doc__,
         'source': obtener_codigo_fuente(test_function),
         'status': "",
-        'captura': f"tests/capturas/{test_function.__name__}.png"
+        'captura': f"testsCatedra/capturas/{test_function.__name__}.png"
     }
 def get_colores(str):
     if str == "Passed":
@@ -92,9 +92,8 @@ def obtener_valores(linea):
 def assertStruc(esperado, captura):
     return html.tr(
     html.td(
-        html.div("línea correcta",html.div(
+        html.div("Test correcto",html.div(
     html.div(
-        html.p("Valores del Assert", style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;"),
         html.div(
             html.div(
                         html.p("Esperado:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
@@ -114,15 +113,15 @@ def assertStruc(esperado, captura):
                         ),
                         style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
                     ),
-                    style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;"
+                    style="display: flex; justify-content: center; align-items: center; padding: 10px; text-align: center;"
                 ),
                 style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
             ),
-            style="float: center; display: flex; justify-content: center; align-items: center; "
-        ), style="float: left; color:black"),
+            style="float: center; display: flex; justify-content: center; align-items: center; margin-top:10px; "
+        ), style="float: left; color:black; "),
         
-        html.div(html.img(src= captura),style=""),
-        style="overflow: auto; width: 100%; ",
+        html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 50px;"),style="overflow: auto; max-height: 200px;"),
+        style="overflow: auto; width: 100%;",
         class_="extra"
     )
 )
@@ -132,7 +131,6 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
         html.div(html.p(valoreserror),html.p(solucionerror), 
     html.div(
     html.div(
-        html.p("Valores del Assert", style="font-size: 15px; margin-top: 0; text-align: center;font-weight: bold;"),
         html.div(
             html.div(
                         html.p("Esperado:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
@@ -152,14 +150,15 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
                         ),
                         style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
                     ),
-                    style="display: flex; justify-content: center; align-items: center; border: 2px solid black; padding: 10px; text-align: center;"
+                    style="display: flex; justify-content: center; align-items: center; padding: 10px; text-align: center;"
                 ),
                 style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
             ),
-            style="float: center; display: flex; justify-content: center; align-items: center; "
-        ), style="float: left; color:black; max-width: 33.33%"),
-        html.div(html.img(src=captura),style=""),
-        style="overflow: auto; width: 100%; ",
+            style="float: center; display: flex; justify-content: center; align-items: center; margin-top:20px;"
+        ), style="float: left; color:black;"),
+
+        html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 50px;"),style="overflow: auto; max-height: 200px;"),
+        style="overflow: auto; width: 100%;",
         class_="extra"
     )
 )
@@ -264,7 +263,7 @@ def pytest_html_results_table_html(report, data):
     if status == "Passed" or status =="Skipped" or status == "XFailed":
         del data[:]
         
-        data.append(html.p(report.description +"\n"))
+        data.append(html.p(report.description +"\n", style = "font-weight: bold; font-size: 15px"))
         table = html.table(style ="width: 100%", class_ ="codigo")
         data.append(table)
         thead = html.thead()

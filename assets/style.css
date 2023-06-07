@@ -343,6 +343,7 @@ div.video video {
 .expander::after {
   content: " (show details)";
   color: var(--letras);
+  font-weight: bold;
   font-style: italic;
   cursor: pointer;
 }
@@ -350,6 +351,7 @@ div.video video {
 .collapser::after {
   content: " (hide details)";
   color: var(--letras);
+  font-weight: bold;
   font-style: italic;
   cursor: pointer;
 }
@@ -374,15 +376,15 @@ div.video video {
 }
 .inactive .sort-icon {
   /*finish triangle*/
-  border-top: 8px solid #f8f8f8;
+  border-top: 8px solid #505050;
 }
 .asc.active .sort-icon {
   /*finish triangle*/
-  border-bottom: 8px solid #bbbaba;
+  border-bottom: 8px solid #000000;
 }
 .desc.active .sort-icon {
   /*finish triangle*/
-  border-top: 8px solid #c2c2c2;
+  border-top: 8px solid #000000;
 }
 
 /******************************
