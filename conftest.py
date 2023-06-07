@@ -4,7 +4,7 @@ import pytest, sys
 import getpass
 from py._xmlgen import *
 sys.path.append('../')
-import tests.test_HMI as test_HMI, tests.test_Selenium as test_Selenium, tests.test_Selenium2 as test_Selenium2
+import testsCatedra.test_HMI as test_HMI, tests.test_Selenium as test_Selenium, tests.test_Selenium2 as test_Selenium2
 import inspect,ast
 from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.service import Service as ChromeService

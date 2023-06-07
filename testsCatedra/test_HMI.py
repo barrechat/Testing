@@ -19,13 +19,11 @@ def test_Desplegable():
         botonDesplegable = driver.find_element(By.ID,"btn-desplegable")
         botonDesplegable.click()
         widthDesplegado =driver.find_element(By.ID,"menu-options").get_attribute("style")
+        driver.save_screenshot("testsCatedra/capturas/test_Desplegable.png")
         botonDesplegable.click()
         widthPlegado = driver.find_element(By.ID,"menu-options").get_attribute("style")
         assert widthPlegado == "width: 65px;" and widthDesplegado == "width: 100%;"
 
 def teardown_module():
-        test_name = pytest.current_testname()
-        screenshot_name = f"tests/capturas/hola.png"
-        driver.save_screenshot(screenshot_name)
         driver.quit()
 
