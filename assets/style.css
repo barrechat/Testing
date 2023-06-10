@@ -226,7 +226,9 @@ h2 {
     border: 1px solid var(--bordes);
     color: var(--letras);
   }
-
+input{
+  margin-left:20px;
+}
 #environment tr:nth-child(odd) {
   background-color: var(--tabla1);
 }

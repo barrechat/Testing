@@ -253,12 +253,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>Reporte de ensayo</h1>
-    <p>Report generated on 07-Jun-2023 at 17:35:05 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 10-Jun-2023 at 16:49:38 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Numero Reporte</td>
-        <td>436</td></tr>
+        <td>484</td></tr>
       <tr>
         <td>Packages</td>
         <td>{"pluggy": "1.0.0", "pytest": "7.3.1"}</td></tr>
@@ -277,16 +277,16 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     <h2>Summary</h2>
     <ul>
       <li>
-        <p style="color: green"><a href="#paso-1" style="color: black">Paso 1</a> Passed</p></li>
+        <p style="color: red"><a href="#paso-1" style="color: black">Paso 1</a> Error</p></li>
       <li>
-        <p style="color: green"><a href="#paso-2" style="color: black">Paso 2</a> Passed</p></li>
+        <p style="color: red"><a href="#paso-2" style="color: black">Paso 2</a> Error</p></li>
       <li>
-        <p style="color: green"><a href="#paso-3" style="color: black">Paso 3</a> Passed</p></li>
+        <p style="color: red"><a href="#paso-3" style="color: black">Paso 3</a> Error</p></li>
       <li>
-        <p style="color: green"><a href="#paso-4" style="color: black">Paso 4</a> Passed</p></li></ul>
-    <p>4 tests ran in 1.54 seconds. </p>
+        <p style="color: red"><a href="#paso-4" style="color: black">Paso 4</a> Error</p></li></ul>
+    <p>0 tests ran in 1.03 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
-    <h2>Filters</h2><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span><br/><input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span><br/><input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span><br/><input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span><br/><input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span><br/><input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Filters</h2><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span><br/><input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span><br/><input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span><br/><input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">4 errors</span><br/><input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span><br/><input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -298,13 +298,13 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable" col="duration">Duration</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="5">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="passed results-table-row">
+      <tbody class="error results-table-row">
         <tr>
           <td id="paso-1">001</td>
-          <td class="col-result">Passed</td>
-          <td class="col-name">testsCatedra/test_HMI.py::test_Desplegable</td>
-          <td class="col-time">2023-06-07 17:35:05.865916</td>
-          <td class="col-duration">1.02</td></tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_Desplegable::setup</td>
+          <td class="col-time">2023-06-10 16:49:38.678680</td>
+          <td class="col-duration">0.89</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la barra desplegable
@@ -323,29 +323,34 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td style="color: black">1.4 driver.save_screenshot(&apos;testsCatedra/capturas/test_Desplegable.png&apos;)</td></tr>
                 <tr>
-                  <td class="col-result" style="color: black">1.5 assert widthDesplegado == &apos;width: 100%;&apos;</td></tr>
+                  <td class="col-result" style="color: red">1.5 assert widthDesplegado == &apos;width: 100%;&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; ">Test correcto
-                      <div style="float: center; display: flex; justify-content: center; align-items: center; margin-top:10px; ">
-                        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                          <div style="display: flex; justify-content: center; align-items: center; padding: 10px; text-align: center;">
-                            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                              <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
-                              <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
-                                <p style="font-size: 10px;"> &apos;width: 100%;&apos;</p></div></div>
-                            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                              <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
-                              <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
-                                <p style="font-size: 10px;"> &apos;width: 100%;&apos;</p></div></div></div></div></div></div>
-                    <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Desplegable.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="passed results-table-row">
+                  <td>
+                    <div class="extra" style="overflow: auto; width: 100%;">
+                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  (Session info: chrome=114.0.5735.106)</p>
+                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p>
+                      <div style="float: left; color:black;">
+                        <div>Test correcto<br/>
+                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Resultados</th></tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>Resultado esperado</td>
+                                <td>error</td></tr>
+                              <tr>
+                                <td>Resultado obtenido</td>
+                                <td>error</td></tr></tbody></table></div></div>
+                      <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Desplegable.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="error results-table-row">
         <tr>
           <td id="paso-2">002</td>
-          <td class="col-result">Passed</td>
-          <td class="col-name">testsCatedra/test_HMI.py::test_Temperaturas</td>
-          <td class="col-time">2023-06-07 17:35:05.866171</td>
-          <td class="col-duration">0.13</td></tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_Temperaturas::setup</td>
+          <td class="col-time">2023-06-10 16:49:38.679443</td>
+          <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la ventana de temperatura
@@ -362,29 +367,34 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td style="color: black">2.3 driver.save_screenshot(&apos;testsCatedra/capturas/test_Temperaturas.png&apos;)</td></tr>
                 <tr>
-                  <td class="col-result" style="color: black">2.4 assert botonTemperatura.is_enabled()</td></tr>
+                  <td class="col-result" style="color: red">2.4 assert botonTemperatura.is_enabled()</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; ">Test correcto
-                      <div style="float: center; display: flex; justify-content: center; align-items: center; margin-top:10px; ">
-                        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                          <div style="display: flex; justify-content: center; align-items: center; padding: 10px; text-align: center;">
-                            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                              <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
-                              <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
-                                <p style="font-size: 10px;">true</p></div></div>
-                            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                              <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
-                              <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
-                                <p style="font-size: 10px;">true</p></div></div></div></div></div></div>
-                    <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Temperaturas.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="passed results-table-row">
+                  <td>
+                    <div class="extra" style="overflow: auto; width: 100%;">
+                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  (Session info: chrome=114.0.5735.106)</p>
+                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p>
+                      <div style="float: left; color:black;">
+                        <div>Test correcto<br/>
+                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Resultados</th></tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>Resultado esperado</td>
+                                <td>error</td></tr>
+                              <tr>
+                                <td>Resultado obtenido</td>
+                                <td>error</td></tr></tbody></table></div></div>
+                      <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Temperaturas.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="error results-table-row">
         <tr>
           <td id="paso-3">003</td>
-          <td class="col-result">Passed</td>
-          <td class="col-name">testsCatedra/test_HMI.py::test_Incidencias</td>
-          <td class="col-time">2023-06-07 17:35:05.866279</td>
-          <td class="col-duration">0.12</td></tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_Incidencias::setup</td>
+          <td class="col-time">2023-06-10 16:49:38.679993</td>
+          <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la ventana de temperatura
@@ -401,29 +411,34 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td style="color: black">3.3 driver.save_screenshot(&apos;testsCatedra/capturas/test_Incidencias.png&apos;)</td></tr>
                 <tr>
-                  <td class="col-result" style="color: black">3.4 assert botonIncidencias.is_enabled()</td></tr>
+                  <td class="col-result" style="color: red">3.4 assert botonIncidencias.is_enabled()</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; ">Test correcto
-                      <div style="float: center; display: flex; justify-content: center; align-items: center; margin-top:10px; ">
-                        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                          <div style="display: flex; justify-content: center; align-items: center; padding: 10px; text-align: center;">
-                            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                              <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
-                              <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
-                                <p style="font-size: 10px;">true</p></div></div>
-                            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                              <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
-                              <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
-                                <p style="font-size: 10px;">true</p></div></div></div></div></div></div>
-                    <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Incidencias.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="passed results-table-row">
+                  <td>
+                    <div class="extra" style="overflow: auto; width: 100%;">
+                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  (Session info: chrome=114.0.5735.106)</p>
+                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p>
+                      <div style="float: left; color:black;">
+                        <div>Test correcto<br/>
+                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Resultados</th></tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>Resultado esperado</td>
+                                <td>error</td></tr>
+                              <tr>
+                                <td>Resultado obtenido</td>
+                                <td>error</td></tr></tbody></table></div></div>
+                      <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Incidencias.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="error results-table-row">
         <tr>
           <td id="paso-4">004</td>
-          <td class="col-result">Passed</td>
-          <td class="col-name">testsCatedra/test_HMI.py::test_InputIncidencias</td>
-          <td class="col-time">2023-06-07 17:35:05.866432</td>
-          <td class="col-duration">0.22</td></tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_InputIncidencias::setup</td>
+          <td class="col-time">2023-06-10 16:49:38.680461</td>
+          <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
             <p style="font-weight: bold; font-size: 15px">Test del input de incidencias
@@ -444,19 +459,24 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td style="color: black">4.5 table = driver.find_element(By.ID, &apos;table_options3&apos;).get_attribute(&apos;style&apos;)</td></tr>
                 <tr>
-                  <td class="col-result" style="color: black">4.6 assert table == &apos;display: block;&apos;</td></tr>
+                  <td class="col-result" style="color: red">4.6 assert table == &apos;display: block;&apos;</td></tr>
                 <tr>
-                  <td class="extra" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black; ">Test correcto
-                      <div style="float: center; display: flex; justify-content: center; align-items: center; margin-top:10px; ">
-                        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                          <div style="display: flex; justify-content: center; align-items: center; padding: 10px; text-align: center;">
-                            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                              <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Esperado:</p>
-                              <div class="resultado" style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ">
-                                <p style="font-size: 10px;"> &apos;display: block;&apos;</p></div></div>
-                            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                              <p style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;">Obtenido:</p>
-                              <div class="resultado" style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;">
-                                <p style="font-size: 10px;"> &apos;display: block;&apos;</p></div></div></div></div></div></div>
-                    <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidencias.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></td></tr></tbody></table></td></tr></tbody></table></body></html>
+                  <td>
+                    <div class="extra" style="overflow: auto; width: 100%;">
+                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  (Session info: chrome=114.0.5735.106)</p>
+                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p>
+                      <div style="float: left; color:black;">
+                        <div>Test correcto<br/>
+                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Resultados</th></tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>Resultado esperado</td>
+                                <td>error</td></tr>
+                              <tr>
+                                <td>Resultado obtenido</td>
+                                <td>error</td></tr></tbody></table></div></div>
+                      <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidencias.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></div></td></tr></tbody></table></td></tr></tbody></table></body></html>

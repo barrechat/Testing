@@ -34,7 +34,6 @@ h2 {
     border: 1px solid var(--bordes);
     color: var(--letras);
   }
-
 #environment tr:nth-child(odd) {
   background-color: var(--tabla1);
 }

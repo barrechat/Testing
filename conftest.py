@@ -92,76 +92,58 @@ def obtener_valores(linea):
 def assertStruc(esperado, captura):
     return html.tr(
     html.td(
-        html.div("Test correcto",html.div(
-    html.div(
         html.div(
-            html.div(
-                        html.p("Esperado:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
-                        html.div(
-                            html.p(esperado, style="font-size: 10px;"),
-                            style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ",
-                            class_="resultado"
-                        ),
-                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
-                    ),
-                    html.div(
-                        html.p("Obtenido:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
-                        html.div(
-                            html.p(esperado, style="font-size: 10px;"),
-                            style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;",
-                            class_="resultado"
-                        ),
-                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
-                    ),
-                    style="display: flex; justify-content: center; align-items: center; padding: 10px; text-align: center;"
+                    html.div("Test correcto",html.br(),html.table(
+                        html.thead(
+                    html.tr(
+                        html.th(),
+                        html.th("Resultados")
+                    )
                 ),
-                style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
-            ),
-            style="float: center; display: flex; justify-content: center; align-items: center; margin-top:10px; "
-        ), style="float: left; color:black; "),
-        
-        html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 50px;"),style="overflow: auto; max-height: 200px;"),
-        style="overflow: auto; width: 100%;",
-        class_="extra"
-    )
+                html.tbody(
+                    html.tr(
+                        html.td("Resultado esperado"),
+                        html.td(esperado)
+                    ),
+                    html.tr(
+                        html.td("Resultado obtenido"),
+                        html.td(esperado)
+                    )
+                ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; color:black;"),
+
+                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 50px;"),style="overflow: auto; max-height: 200px;"),
+                style="overflow: auto; width: 100%;",
+                class_="extra"
+            )
 )
 def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
     return html.tr(
     html.td(
         html.div(html.p(valoreserror),html.p(solucionerror), 
-    html.div(
-    html.div(
-        html.div(
             html.div(
-                        html.p("Esperado:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
-                        html.div(
-                            html.p(esperado, style="font-size: 10px;"),
-                            style="width: 60px; height: 60px; margin-right: 5px; word-wrap: break-word; ",
-                            class_="resultado"
-                        ),
-                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
-                    ),
-                    html.div(
-                        html.p("Obtenido:", style="font-size: 10px; margin-top: 0; text-align: center;font-weight: bold;"),
-                        html.div(
-                            html.p(obtenido, style="font-size: 10px;"),
-                            style="width: 60px; height: 60px; margin-left: 5px; word-wrap: break-word;",
-                            class_="resultado"
-                        ),
-                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
-                    ),
-                    style="display: flex; justify-content: center; align-items: center; padding: 10px; text-align: center;"
+                    html.div("Test correcto",html.br(),html.table(
+                        html.thead(
+                    html.tr(
+                        html.th(),
+                        html.th("Resultados")
+                    )
                 ),
-                style="display: flex; justify-content: center; align-items: center; flex-direction: column;"
-            ),
-            style="float: center; display: flex; justify-content: center; align-items: center; margin-top:20px;"
-        ), style="float: left; color:black;"),
+                html.tbody(
+                    html.tr(
+                        html.td("Resultado esperado"),
+                        html.td(esperado)
+                    ),
+                    html.tr(
+                        html.td("Resultado obtenido"),
+                        html.td(obtenido)
+                    )
+                ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; color:black;"),
 
-        html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 50px;"),style="overflow: auto; max-height: 200px;"),
-        style="overflow: auto; width: 100%;",
-        class_="extra"
-    )
-)
+                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 50px;"),style="overflow: auto; max-height: 200px;"),
+                style="overflow: auto; width: 100%;",
+                class_="extra"
+            )
+))
 
 
 
@@ -171,7 +153,7 @@ def pytest_exception_interact(node, call, report):
     if report.failed:  # Solo modificar los mensajes de error para los tests que fallaron
         exception_type, exception_value, traceback = call.excinfo._excinfo
         # Aquí puedes personalizar el mensaje de error según tus necesidades
-        exception_value = str(exception_value).split("-")[0]
+        exception_value = str(exception_value).split("-")[0].split("Stacktrace:")[0]
         if exception_type.__name__ in errores:
             custom_error_message = f"ERROR: {exception_type.__name__}: {exception_value}" +"@solucion"+ errores[exception_type.__name__] 
         else:
@@ -214,21 +196,18 @@ def pytest_configure(config):
 def pytest_html_results_summary(prefix, summary, postfix):
     global test_name
     count = 0
-    filtered = False
     for i, element in enumerate(summary):
+        
         if ", " == element:
             summary.remove(element)
             summary.insert(i,html.br())
+
         if "span" in str(element):
             count += int(str(element).split(">")[1].split(" ")[0])
+        
+
             
-
-        if "input" in str(element):
-            if not filtered:
-                # Guardar la posición para insertar el elemento <h2> "Filters"
-                Title_position = i
-                filtered = True
-
+            
     prefix.extend([
     html.ul(
         [
@@ -242,7 +221,7 @@ def pytest_html_results_summary(prefix, summary, postfix):
         ]
     )
 ])
-    summary.insert(Title_position, html.h2("Filters"))
+    summary.insert(2, html.h2("Filters"))
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
@@ -251,9 +230,6 @@ def pytest_runtest_makereport(item, call):
     report.description = str(item.function.__doc__)
     test_name = item.function.__name__
     test_info_dict[test_name] = get_test_info(item.function)
-    
-     
-
 
 def pytest_html_results_table_html(report, data):
     test_name = report.nodeid.split("::")[-1]
@@ -300,7 +276,7 @@ def pytest_html_results_table_html(report, data):
 
         valores = obtener_valores(error[0])
         del data[:]
-        data.append(html.p(report.description +"\n"))
+        data.append(html.p(report.description +"\n",style = "font-weight: bold; font-size: 15px"))
         table = html.table(style ="width: 100%" , class_ ="codigo")
         data.append(table)
         thead = html.thead()
@@ -311,14 +287,12 @@ def pytest_html_results_table_html(report, data):
         first_line = True
         asserted = False
         i=0
-        if "WebDriverException" in error[0]:
-            error[0] = error[0].split("(Session info:")[0]
+        
         for line in test_info["source"]:
             if first_line:
                 first_line = False
             elif "assert" in line:
                 tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: red")))
-                print(error, valores, test_name)
                 tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1],test_info["captura"]))  
                 asserted = True
             else:
