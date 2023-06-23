@@ -25,6 +25,16 @@ errores = {
         "StopIteration": " \nIteraciones excedidas: Verificar que la estructura contenga elementos y sean validos",
         "WebDriverException": " \nProblemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls",
     }
+instrucciones = {
+        "find_element": "Buscamos por ",
+        "click" :"Pulsamos el boton",
+        "save_screenshot": "Guardamos el screenshot",
+        "is_enabled": "Comprobamos que este disponible",
+        "Select" : "Convertimos el elemento en un selector",
+        "select_by_visible_text": "Selecciona una opcion del select por su texto",
+        "get_attribute": "Obtiene un atributo del elemento",
+        
+}
 numeroReporte = 0
 testcounter = 0
 with open ('numeroReporte.txt','r') as numero:
@@ -40,6 +50,43 @@ def obtener_codigo_fuente(func):
     cuerpo_funcion = ast.unparse(arbol_sintactico.body[0].body)
     lineas = cuerpo_funcion.split('\n')
     return lineas
+
+def obtener_explicacion_linea(str):
+    if "assert" in str:
+        return "Comprobamos la condicion"
+    
+    linea = str.split("(",1)
+    if "." in linea[0]:
+        instruccion = linea[0].split(".")[1]
+    else:
+        instruccion = linea[0].split("=")[1]
+        instruccion= instruccion.replace(" ","")
+        print(instruccion)
+    valores = linea[1].split(")",1)[0]
+    añadido=  linea[1].split(")",1)[1]
+    if "." in añadido:
+
+        if "(" in añadido:
+            return obtener_str_linea([instruccion, valores, obtener_explicacion_linea(añadido)])
+        else:
+            return obtener_str_linea([instruccion,valores, añadido.split(".",1)[1]])
+    return obtener_str_linea([instruccion,valores, " "])
+
+def obtener_str_linea(array):
+    if array[0] == " ": 
+             return array[0]
+    
+    else:
+        if array[0] in instrucciones:
+            if array[0] == "find_element":
+                argumentos = array[1].split(",",1)
+                argumentos[0] = argumentos[0].split(".",1)[1]
+                print(str(instrucciones[array[0]]) + str(argumentos[0]) +" el elemento "+ str(argumentos[1]) + str(obtener_str_linea(array[2])))
+                return str(instrucciones[array[0]]) + str(argumentos[0]) +" el elemento "+ str(argumentos[1]) + str(obtener_str_linea(array[2]))
+            else: 
+                return str(instrucciones[array[0]])
+        
+    return ""
 
 def get_test_info(test_function, ):
     return {
@@ -89,11 +136,12 @@ def obtener_valores(linea):
             valores = ["error","error"]
     return valores
 ## estructura detalles assert
+
 def assertStruc(esperado, captura):
     return html.tr(
     html.td(
         html.div(
-                    html.div("Test correcto",html.br(),html.table(
+                    html.div(html.table(
                         html.thead(
                     html.tr(
                         html.th(),
@@ -110,18 +158,18 @@ def assertStruc(esperado, captura):
                         html.td(esperado)
                     )
                 ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; color:black;"),
-
-                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 50px;"),style="overflow: auto; max-height: 200px;"),
+                html.p("Test correcto", style ="margin-top:100px;"),
+                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 150px;"),style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"),
                 style="overflow: auto; width: 100%;",
-                class_="extra"
+                class_="extr"
             )
 )
 def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
     return html.tr(
     html.td(
-        html.div(html.p(valoreserror),html.p(solucionerror), 
+        html.div(
             html.div(
-                    html.div("Test correcto",html.br(),html.table(
+                    html.div(html.table(
                         html.thead(
                     html.tr(
                         html.th(),
@@ -138,8 +186,10 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
                         html.td(obtenido)
                     )
                 ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; color:black;"),
+                html.div(html.p(valoreserror),html.p(solucionerror),style = "margin-top:100px; max-width: 50vw;"),
 
-                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 50px;"),style="overflow: auto; max-height: 200px;"),
+                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 150px;"),style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"),
+                
                 style="overflow: auto; width: 100%;",
                 class_="extra"
             )
@@ -167,6 +217,7 @@ def pytest_configure(config):
 def pytest_html_results_table_header(cells):
     cells.insert(2, html.th("Time", class_="sortable time", col="time"))
     cells.insert(0, html.th('#', class_="sortable int", col='int'))
+    cells.insert(2,html.th('Title', class_= "sortable", col="title"))
     cells.pop()
 
 def pytest_html_results_table_row(report, cells):
@@ -179,6 +230,8 @@ def pytest_html_results_table_row(report, cells):
         cells.insert(0, html.td(""+str(testcounter), id = f'paso-{testcounter}'))
     elif(testcounter>0):
         cells.insert(0, html.td("00"+str(testcounter), id = f'paso-{testcounter}'))
+    
+    cells.insert(2,html.td(report.description, class_= "col-title"))
     cells.pop()
 
 def pytest_html_report_title(report):
@@ -255,14 +308,14 @@ def pytest_html_results_table_html(report, data):
                 first_line = False
             elif "assert" in line:
                 valores = obtener_valores(line)
-                tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: black")))
+                tbody.append(html.tr(html.td(html.div(html.div(str(testcounter)+ "."+ str(i)+ " "+str(obtener_explicacion_linea(line)), style ="float:left;  font-weight:bold;"), html.div(linestyle="float:right;"), style="color: black;"))))
                 tbody.append(assertStruc(valores[1],test_info["captura"]))            
                 asserted =True
             else:
-                tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, style="color: black")))
+                tbody.append(html.tr(html.td(html.div(html.div(str(testcounter)+ "."+ str(i)+ " "+str(obtener_explicacion_linea(line)), style ="float:left;  font-weight:bold;"), html.div(line,style="float:right;"), style="color: black;"))))
             i+= 1
         if not asserted:
-            tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " No hay assert", class_="col-result", style="color: black")))
+            tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " No hay assert", style="color: black")))
             tbody.append(assertStruc("Skipped",test_info["captura"]))    
     
     
@@ -273,7 +326,8 @@ def pytest_html_results_table_html(report, data):
         error = error.find('div', class_ = 'log').get_text().split("@solucion")
         if error[0] == "No log output captured.":
             error =["UnexpectedPass", "Fallo desconocido, test deberia fallar"]
-
+        if "<selenium.webdriver.remote.webelement.WebElement" in error[0]:
+            error[0] = error[0].split("=")[0]
         valores = obtener_valores(error[0])
         del data[:]
         data.append(html.p(report.description +"\n",style = "font-weight: bold; font-size: 15px"))
@@ -292,14 +346,14 @@ def pytest_html_results_table_html(report, data):
             if first_line:
                 first_line = False
             elif "assert" in line:
-                tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, class_="col-result", style="color: red")))
+                tbody.append(html.tr(html.td(html.div(html.div(str(testcounter)+ "."+ str(i)+ " "+str(obtener_explicacion_linea(line)), style ="float:left; font-weight:bold;"), html.div(linestyle="float:right;"), style="color: black;"))))
                 tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1],test_info["captura"]))  
                 asserted = True
             else:
-                tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " "+line, style="color: black")))
+                tbody.append(html.tr(html.td(html.div(html.div(str(testcounter)+ "."+ str(i)+ " "+str(obtener_explicacion_linea(line)), style ="float:left; font-weight:bold;"), html.div(line,style="float:right;"), style="color: black;"))))
             i+=1
 
         if not asserted:
-             tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " No hay assert", class_="col-result", style="color: black")))
+             tbody.append(html.tr(html.td(str(testcounter)+ "."+ str(i)+ " No hay assert",style="color: black")))
              tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1]))  
     

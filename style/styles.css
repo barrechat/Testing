@@ -3,7 +3,7 @@
     --tabla1: #a5c9ca;
     
     --tabla2: #f1e6d8;
-    --bordes: black;
+    --bordes: rgb(0, 0, 0);
     --letras: black;
 
 }
@@ -93,6 +93,9 @@ span.xpassed,
  .extra{
     background-color: var(--tabla1);
  }
+ .extr{
+  background-color: var(--tabla1);
+}
  .codigo{
     background-color: var(--tabla2);
     border: 1px solid black;

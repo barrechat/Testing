@@ -253,12 +253,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>Reporte de ensayo</h1>
-    <p>Report generated on 10-Jun-2023 at 16:49:38 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 23-Jun-2023 at 12:26:18 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Numero Reporte</td>
-        <td>484</td></tr>
+        <td>571</td></tr>
       <tr>
         <td>Packages</td>
         <td>{"pluggy": "1.0.0", "pytest": "7.3.1"}</td></tr>
@@ -277,36 +277,288 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     <h2>Summary</h2>
     <ul>
       <li>
-        <p style="color: red"><a href="#paso-1" style="color: black">Paso 1</a> Error</p></li>
+        <p style="color: red"><a href="#paso-1" style="color: black">Paso 1</a> Failed</p></li>
       <li>
-        <p style="color: red"><a href="#paso-2" style="color: black">Paso 2</a> Error</p></li>
+        <p style="color: green"><a href="#paso-2" style="color: black">Paso 2</a> Passed</p></li>
       <li>
-        <p style="color: red"><a href="#paso-3" style="color: black">Paso 3</a> Error</p></li>
+        <p style="color: red"><a href="#paso-3" style="color: black">Paso 3</a> Failed</p></li>
       <li>
-        <p style="color: red"><a href="#paso-4" style="color: black">Paso 4</a> Error</p></li></ul>
-    <p>0 tests ran in 1.03 seconds. </p>
+        <p style="color: green"><a href="#paso-4" style="color: black">Paso 4</a> Passed</p></li>
+      <li>
+        <p style="color: red"><a href="#paso-5" style="color: black">Paso 5</a> Failed</p></li>
+      <li>
+        <p style="color: green"><a href="#paso-6" style="color: black">Paso 6</a> Passed</p></li>
+      <li>
+        <p style="color: red"><a href="#paso-7" style="color: black">Paso 7</a> Failed</p></li>
+      <li>
+        <p style="color: green"><a href="#paso-8" style="color: black">Paso 8</a> Passed</p></li></ul>
+    <p>8 tests ran in 1.93 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
-    <h2>Filters</h2><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span><br/><input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span><br/><input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span><br/><input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">4 errors</span><br/><input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span><br/><input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Filters</h2><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span><br/><input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span><br/><input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">4 failed</span><br/><input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span><br/><input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span><br/><input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
         <tr>
           <th class="sortable int" col="int">#</th>
           <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="title">Title</th>
           <th class="sortable" col="name">Test</th>
           <th class="sortable time" col="time">Time</th>
           <th class="sortable" col="duration">Duration</th></tr>
         <tr hidden="true" id="not-found-message">
-          <th colspan="5">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="error results-table-row">
+          <th colspan="6">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
         <tr>
           <td id="paso-1">001</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">testsCatedra/test_HMI.py::test_Desplegable::setup</td>
-          <td class="col-time">2023-06-10 16:49:38.678680</td>
-          <td class="col-duration">0.89</td></tr>
+          <td class="col-result">Failed</td>
+          <td class="col-title">Test de visualizacion de la barra desplegable</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_DesplegableFallido</td>
+          <td class="col-time">2023-06-23 12:26:18.841617</td>
+          <td class="col-duration">0.99</td></tr>
         <tr>
-          <td class="extra" colspan="5">
+          <td class="extra" colspan="6">
+            <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la barra desplegable
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_DesplegableFallido</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">1.1 Buscamos por ID el elemento  &apos;btn-desplegable&apos; </div>
+                      <div style="float:right;">botonDesplegable = driver.find_element(By.ID, &apos;btn-desplegable&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">1.2 Buscamos por ID el elemento  &apos;menu-options&apos;</div>
+                      <div style="float:right;">widthDesplegado = driver.find_element(By.ID, &apos;menu-options&apos;).get_attribute(&apos;style&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">1.3 Guardamos el screenshot</div>
+                      <div style="float:right;">driver.save_screenshot(&apos;testsCatedra/capturas/test_DesplegableFallido.png&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">1.4 Comprobamos la condicion</div>
+                      <div linestyle="float:right;"></div></div></td></tr>
+                <tr>
+                  <td>
+                    <div class="extra" style="overflow: auto; width: 100%;">
+                      <div style="float: left; color:black;">
+                        <div>
+                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Resultados</th></tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>Resultado esperado</td>
+                                <td> &apos;width: 100%;&apos;  </td></tr>
+                              <tr>
+                                <td>Resultado obtenido</td>
+                                <td> &apos;&apos; </td></tr></tbody></table></div></div>
+                      <div style="margin-top:100px; max-width: 50vw;">
+                        <p>ERROR: AssertionError: assert &apos;&apos; == &apos;width: 100%;&apos;  </p>
+                        <p> Fallo en el Assert: Comprobar valores en pagina web</p></div>
+                      <div style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_DesplegableFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td id="paso-3">003</td>
+          <td class="col-result">Failed</td>
+          <td class="col-title">Test de visualizacion de la ventana de temperatura</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_TemperaturasFallido</td>
+          <td class="col-time">2023-06-23 12:26:18.843299</td>
+          <td class="col-duration">0.13</td></tr>
+        <tr>
+          <td class="extra" colspan="6">
+            <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la ventana de temperatura
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_TemperaturasFallido</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">3.1 Buscamos por ID el elemento  &apos;grafica&apos; </div>
+                      <div style="float:right;">botonTemperatura = driver.find_element(By.ID, &apos;grafica&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">3.2 Pulsamos el boton</div>
+                      <div style="float:right;">botonTemperatura.click()</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">3.3 Guardamos el screenshot</div>
+                      <div style="float:right;">driver.save_screenshot(&apos;testsCatedra/capturas/test_TemperaturasFallido.png&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">3.4 Comprobamos la condicion</div>
+                      <div linestyle="float:right;"></div></div></td></tr>
+                <tr>
+                  <td>
+                    <div class="extra" style="overflow: auto; width: 100%;">
+                      <div style="float: left; color:black;">
+                        <div>
+                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Resultados</th></tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>Resultado esperado</td>
+                                <td>true</td></tr>
+                              <tr>
+                                <td>Resultado obtenido</td>
+                                <td>false</td></tr></tbody></table></div></div>
+                      <div style="margin-top:100px; max-width: 50vw;">
+                        <p>ERROR: AssertionError: assert not True +  where True </p>
+                        <p> Fallo en el Assert: Comprobar valores en pagina web</p></div>
+                      <div style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_TemperaturasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td id="paso-5">005</td>
+          <td class="col-result">Failed</td>
+          <td class="col-title">Test de visualizacion de la ventana de temperatura</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_IncidenciasFallido</td>
+          <td class="col-time">2023-06-23 12:26:18.843945</td>
+          <td class="col-duration">0.11</td></tr>
+        <tr>
+          <td class="extra" colspan="6">
+            <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la ventana de temperatura
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_IncidenciasFallido</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">5.1 Buscamos por ID el elemento  &apos;auricular&apos; </div>
+                      <div style="float:right;">botonIncidencias = driver.find_element(By.ID, &apos;auricular&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">5.2 Pulsamos el boton</div>
+                      <div style="float:right;">botonIncidencias.click()</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">5.3 Guardamos el screenshot</div>
+                      <div style="float:right;">driver.save_screenshot(&apos;testsCatedra/capturas/test_IncidenciasFallido.png&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">5.4 Comprobamos la condicion</div>
+                      <div linestyle="float:right;"></div></div></td></tr>
+                <tr>
+                  <td>
+                    <div class="extra" style="overflow: auto; width: 100%;">
+                      <div style="float: left; color:black;">
+                        <div>
+                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Resultados</th></tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>Resultado esperado</td>
+                                <td>true</td></tr>
+                              <tr>
+                                <td>Resultado obtenido</td>
+                                <td>false</td></tr></tbody></table></div></div>
+                      <div style="margin-top:100px; max-width: 50vw;">
+                        <p>ERROR: AssertionError: assert not True +  where True </p>
+                        <p> Fallo en el Assert: Comprobar valores en pagina web</p></div>
+                      <div style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_IncidenciasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td id="paso-7">007</td>
+          <td class="col-result">Failed</td>
+          <td class="col-title">Test del input de incidencias</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_InputIncidenciasFallido</td>
+          <td class="col-time">2023-06-23 12:26:18.844567</td>
+          <td class="col-duration">0.10</td></tr>
+        <tr>
+          <td class="extra" colspan="6">
+            <p style="font-weight: bold; font-size: 15px">Test del input de incidencias
+</p>
+            <table class="codigo" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>test_InputIncidenciasFallido</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">7.1 Buscamos por ID el elemento  &apos;select-incidencia&apos; </div>
+                      <div style="float:right;">inputIncidencias = driver.find_element(By.ID, &apos;select-incidencia&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">7.2 Convertimos el elemento en un selector</div>
+                      <div style="float:right;">select = Select(inputIncidencias)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">7.3 Selecciona una opcion del select por su texto</div>
+                      <div style="float:right;">select.select_by_visible_text(&apos;Avería del motor&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">7.4 Guardamos el screenshot</div>
+                      <div style="float:right;">driver.save_screenshot(&apos;testsCatedra/capturas/test_InputIncidenciasFallido.png&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">7.5 Buscamos por ID el elemento  &apos;table_options3&apos;</div>
+                      <div style="float:right;">table = driver.find_element(By.ID, &apos;table_options3&apos;).get_attribute(&apos;style&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left; font-weight:bold;">7.6 Comprobamos la condicion</div>
+                      <div linestyle="float:right;"></div></div></td></tr>
+                <tr>
+                  <td>
+                    <div class="extra" style="overflow: auto; width: 100%;">
+                      <div style="float: left; color:black;">
+                        <div>
+                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Resultados</th></tr></thead>
+                            <tbody>
+                              <tr>
+                                <td>Resultado esperado</td>
+                                <td> &apos;block;&apos;  </td></tr>
+                              <tr>
+                                <td>Resultado obtenido</td>
+                                <td> &apos;display: block;&apos; </td></tr></tbody></table></div></div>
+                      <div style="margin-top:100px; max-width: 50vw;">
+                        <p>ERROR: AssertionError: assert &apos;display: block;&apos; == &apos;block;&apos;  </p>
+                        <p> Fallo en el Assert: Comprobar valores en pagina web</p></div>
+                      <div style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidenciasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td id="paso-2">002</td>
+          <td class="col-result">Passed</td>
+          <td class="col-title">Test de visualizacion de la barra desplegable</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_Desplegable</td>
+          <td class="col-time">2023-06-23 12:26:18.842641</td>
+          <td class="col-duration">0.16</td></tr>
+        <tr>
+          <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la barra desplegable
 </p>
             <table class="codigo" style="width: 100%">
@@ -315,44 +567,58 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                   <th>test_Desplegable</th></tr></thead>
               <tbody>
                 <tr>
-                  <td style="color: black">1.1 botonDesplegable = driver.find_element(By.ID, &apos;btn-desplegable&apos;)</td></tr>
-                <tr>
-                  <td style="color: black">1.2 botonDesplegable.click()</td></tr>
-                <tr>
-                  <td style="color: black">1.3 widthDesplegado = driver.find_element(By.ID, &apos;menu-options&apos;).get_attribute(&apos;style&apos;)</td></tr>
-                <tr>
-                  <td style="color: black">1.4 driver.save_screenshot(&apos;testsCatedra/capturas/test_Desplegable.png&apos;)</td></tr>
-                <tr>
-                  <td class="col-result" style="color: red">1.5 assert widthDesplegado == &apos;width: 100%;&apos;</td></tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">2.1 Buscamos por ID el elemento  &apos;btn-desplegable&apos; </div>
+                      <div style="float:right;">botonDesplegable = driver.find_element(By.ID, &apos;btn-desplegable&apos;)</div></div></td></tr>
                 <tr>
                   <td>
-                    <div class="extra" style="overflow: auto; width: 100%;">
-                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  (Session info: chrome=114.0.5735.106)</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p>
-                      <div style="float: left; color:black;">
-                        <div>Test correcto<br/>
-                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>Resultados</th></tr></thead>
-                            <tbody>
-                              <tr>
-                                <td>Resultado esperado</td>
-                                <td>error</td></tr>
-                              <tr>
-                                <td>Resultado obtenido</td>
-                                <td>error</td></tr></tbody></table></div></div>
-                      <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Desplegable.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">2.2 Pulsamos el boton</div>
+                      <div style="float:right;">botonDesplegable.click()</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">2.3 Buscamos por ID el elemento  &apos;menu-options&apos;</div>
+                      <div style="float:right;">widthDesplegado = driver.find_element(By.ID, &apos;menu-options&apos;).get_attribute(&apos;style&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">2.4 Guardamos el screenshot</div>
+                      <div style="float:right;">driver.save_screenshot(&apos;testsCatedra/capturas/test_Desplegable.png&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">2.5 Comprobamos la condicion</div>
+                      <div linestyle="float:right;"></div></div></td></tr>
+                <tr>
+                  <td class="extr" style="overflow: auto; width: 100%;">
+                    <div style="float: left; color:black;">
+                      <div>
+                        <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Resultados</th></tr></thead>
+                          <tbody>
+                            <tr>
+                              <td>Resultado esperado</td>
+                              <td> &apos;width: 100%;&apos;</td></tr>
+                            <tr>
+                              <td>Resultado obtenido</td>
+                              <td> &apos;width: 100%;&apos;</td></tr></tbody></table></div></div>
+                    <p style="margin-top:100px;">Test correcto</p>
+                    <div style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Desplegable.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
         <tr>
-          <td id="paso-2">002</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">testsCatedra/test_HMI.py::test_Temperaturas::setup</td>
-          <td class="col-time">2023-06-10 16:49:38.679443</td>
-          <td class="col-duration">0.00</td></tr>
+          <td id="paso-4">004</td>
+          <td class="col-result">Passed</td>
+          <td class="col-title">Test de visualizacion de la ventana de temperatura</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_Temperaturas</td>
+          <td class="col-time">2023-06-23 12:26:18.843799</td>
+          <td class="col-duration">0.11</td></tr>
         <tr>
-          <td class="extra" colspan="5">
+          <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la ventana de temperatura
 </p>
             <table class="codigo" style="width: 100%">
@@ -361,42 +627,53 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                   <th>test_Temperaturas</th></tr></thead>
               <tbody>
                 <tr>
-                  <td style="color: black">2.1 botonTemperatura = driver.find_element(By.ID, &apos;grafica&apos;)</td></tr>
-                <tr>
-                  <td style="color: black">2.2 botonTemperatura.click()</td></tr>
-                <tr>
-                  <td style="color: black">2.3 driver.save_screenshot(&apos;testsCatedra/capturas/test_Temperaturas.png&apos;)</td></tr>
-                <tr>
-                  <td class="col-result" style="color: red">2.4 assert botonTemperatura.is_enabled()</td></tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">4.1 Buscamos por ID el elemento  &apos;grafica&apos; </div>
+                      <div style="float:right;">botonTemperatura = driver.find_element(By.ID, &apos;grafica&apos;)</div></div></td></tr>
                 <tr>
                   <td>
-                    <div class="extra" style="overflow: auto; width: 100%;">
-                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  (Session info: chrome=114.0.5735.106)</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p>
-                      <div style="float: left; color:black;">
-                        <div>Test correcto<br/>
-                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>Resultados</th></tr></thead>
-                            <tbody>
-                              <tr>
-                                <td>Resultado esperado</td>
-                                <td>error</td></tr>
-                              <tr>
-                                <td>Resultado obtenido</td>
-                                <td>error</td></tr></tbody></table></div></div>
-                      <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Temperaturas.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">4.2 Pulsamos el boton</div>
+                      <div style="float:right;">botonTemperatura.click()</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">4.3 Guardamos el screenshot</div>
+                      <div style="float:right;">driver.save_screenshot(&apos;testsCatedra/capturas/test_Temperaturas.png&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">4.4 Comprobamos la condicion</div>
+                      <div linestyle="float:right;"></div></div></td></tr>
+                <tr>
+                  <td class="extr" style="overflow: auto; width: 100%;">
+                    <div style="float: left; color:black;">
+                      <div>
+                        <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Resultados</th></tr></thead>
+                          <tbody>
+                            <tr>
+                              <td>Resultado esperado</td>
+                              <td>true</td></tr>
+                            <tr>
+                              <td>Resultado obtenido</td>
+                              <td>true</td></tr></tbody></table></div></div>
+                    <p style="margin-top:100px;">Test correcto</p>
+                    <div style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Temperaturas.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
         <tr>
-          <td id="paso-3">003</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">testsCatedra/test_HMI.py::test_Incidencias::setup</td>
-          <td class="col-time">2023-06-10 16:49:38.679993</td>
-          <td class="col-duration">0.00</td></tr>
+          <td id="paso-6">006</td>
+          <td class="col-result">Passed</td>
+          <td class="col-title">Test de visualizacion de la ventana de temperatura</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_Incidencias</td>
+          <td class="col-time">2023-06-23 12:26:18.844427</td>
+          <td class="col-duration">0.10</td></tr>
         <tr>
-          <td class="extra" colspan="5">
+          <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la ventana de temperatura
 </p>
             <table class="codigo" style="width: 100%">
@@ -405,42 +682,53 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                   <th>test_Incidencias</th></tr></thead>
               <tbody>
                 <tr>
-                  <td style="color: black">3.1 botonIncidencias = driver.find_element(By.ID, &apos;auricular&apos;)</td></tr>
-                <tr>
-                  <td style="color: black">3.2 botonIncidencias.click()</td></tr>
-                <tr>
-                  <td style="color: black">3.3 driver.save_screenshot(&apos;testsCatedra/capturas/test_Incidencias.png&apos;)</td></tr>
-                <tr>
-                  <td class="col-result" style="color: red">3.4 assert botonIncidencias.is_enabled()</td></tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">6.1 Buscamos por ID el elemento  &apos;auricular&apos; </div>
+                      <div style="float:right;">botonIncidencias = driver.find_element(By.ID, &apos;auricular&apos;)</div></div></td></tr>
                 <tr>
                   <td>
-                    <div class="extra" style="overflow: auto; width: 100%;">
-                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  (Session info: chrome=114.0.5735.106)</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p>
-                      <div style="float: left; color:black;">
-                        <div>Test correcto<br/>
-                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>Resultados</th></tr></thead>
-                            <tbody>
-                              <tr>
-                                <td>Resultado esperado</td>
-                                <td>error</td></tr>
-                              <tr>
-                                <td>Resultado obtenido</td>
-                                <td>error</td></tr></tbody></table></div></div>
-                      <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Incidencias.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
-      <tbody class="error results-table-row">
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">6.2 Pulsamos el boton</div>
+                      <div style="float:right;">botonIncidencias.click()</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">6.3 Guardamos el screenshot</div>
+                      <div style="float:right;">driver.save_screenshot(&apos;testsCatedra/capturas/test_Incidencias.png&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">6.4 Comprobamos la condicion</div>
+                      <div linestyle="float:right;"></div></div></td></tr>
+                <tr>
+                  <td class="extr" style="overflow: auto; width: 100%;">
+                    <div style="float: left; color:black;">
+                      <div>
+                        <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Resultados</th></tr></thead>
+                          <tbody>
+                            <tr>
+                              <td>Resultado esperado</td>
+                              <td>true</td></tr>
+                            <tr>
+                              <td>Resultado obtenido</td>
+                              <td>true</td></tr></tbody></table></div></div>
+                    <p style="margin-top:100px;">Test correcto</p>
+                    <div style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Incidencias.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
+      <tbody class="passed results-table-row">
         <tr>
-          <td id="paso-4">004</td>
-          <td class="col-result">Error</td>
-          <td class="col-name">testsCatedra/test_HMI.py::test_InputIncidencias::setup</td>
-          <td class="col-time">2023-06-10 16:49:38.680461</td>
-          <td class="col-duration">0.00</td></tr>
+          <td id="paso-8">008</td>
+          <td class="col-result">Passed</td>
+          <td class="col-title">Test del input de incidencias</td>
+          <td class="col-name">testsCatedra/test_HMI.py::test_InputIncidencias</td>
+          <td class="col-time">2023-06-23 12:26:18.844958</td>
+          <td class="col-duration">0.13</td></tr>
         <tr>
-          <td class="extra" colspan="5">
+          <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test del input de incidencias
 </p>
             <table class="codigo" style="width: 100%">
@@ -449,34 +737,50 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                   <th>test_InputIncidencias</th></tr></thead>
               <tbody>
                 <tr>
-                  <td style="color: black">4.1 inputIncidencias = driver.find_element(By.ID, &apos;select-incidencia&apos;)</td></tr>
-                <tr>
-                  <td style="color: black">4.2 select = Select(inputIncidencias)</td></tr>
-                <tr>
-                  <td style="color: black">4.3 select.select_by_visible_text(&apos;Avería del motor&apos;)</td></tr>
-                <tr>
-                  <td style="color: black">4.4 driver.save_screenshot(&apos;testsCatedra/capturas/test_InputIncidencias.png&apos;)</td></tr>
-                <tr>
-                  <td style="color: black">4.5 table = driver.find_element(By.ID, &apos;table_options3&apos;).get_attribute(&apos;style&apos;)</td></tr>
-                <tr>
-                  <td class="col-result" style="color: red">4.6 assert table == &apos;display: block;&apos;</td></tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">8.1 Buscamos por ID el elemento  &apos;select-incidencia&apos; </div>
+                      <div style="float:right;">inputIncidencias = driver.find_element(By.ID, &apos;select-incidencia&apos;)</div></div></td></tr>
                 <tr>
                   <td>
-                    <div class="extra" style="overflow: auto; width: 100%;">
-                      <p>ERROR: WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED  (Session info: chrome=114.0.5735.106)</p>
-                      <p> Problemas de conexion: Comprobar que la pagina web esta en funcionamiento y las urls</p>
-                      <div style="float: left; color:black;">
-                        <div>Test correcto<br/>
-                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>Resultados</th></tr></thead>
-                            <tbody>
-                              <tr>
-                                <td>Resultado esperado</td>
-                                <td>error</td></tr>
-                              <tr>
-                                <td>Resultado obtenido</td>
-                                <td>error</td></tr></tbody></table></div></div>
-                      <div style="overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidencias.png" style=" max-height: 200px; float: right; margin-right: 50px;"/></div></div></td></tr></tbody></table></td></tr></tbody></table></body></html>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">8.2 Convertimos el elemento en un selector</div>
+                      <div style="float:right;">select = Select(inputIncidencias)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">8.3 Selecciona una opcion del select por su texto</div>
+                      <div style="float:right;">select.select_by_visible_text(&apos;Avería del motor&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">8.4 Guardamos el screenshot</div>
+                      <div style="float:right;">driver.save_screenshot(&apos;testsCatedra/capturas/test_InputIncidencias.png&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">8.5 Buscamos por ID el elemento  &apos;table_options3&apos;</div>
+                      <div style="float:right;">table = driver.find_element(By.ID, &apos;table_options3&apos;).get_attribute(&apos;style&apos;)</div></div></td></tr>
+                <tr>
+                  <td>
+                    <div style="color: black;">
+                      <div style="float:left;  font-weight:bold;">8.6 Comprobamos la condicion</div>
+                      <div linestyle="float:right;"></div></div></td></tr>
+                <tr>
+                  <td class="extr" style="overflow: auto; width: 100%;">
+                    <div style="float: left; color:black;">
+                      <div>
+                        <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Resultados</th></tr></thead>
+                          <tbody>
+                            <tr>
+                              <td>Resultado esperado</td>
+                              <td> &apos;display: block;&apos;</td></tr>
+                            <tr>
+                              <td>Resultado obtenido</td>
+                              <td> &apos;display: block;&apos;</td></tr></tbody></table></div></div>
+                    <p style="margin-top:100px;">Test correcto</p>
+                    <div style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidencias.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody></table></body></html>
