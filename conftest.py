@@ -308,7 +308,7 @@ def pytest_html_results_table_html(report, data):
                 first_line = False
             elif "assert" in line:
                 valores = obtener_valores(line)
-                tbody.append(html.tr(html.td(html.div(html.div(str(testcounter)+ "."+ str(i)+ " "+str(obtener_explicacion_linea(line)), style ="float:left;  font-weight:bold;"), html.div(linestyle="float:right;"), style="color: black;"))))
+                tbody.append(html.tr(html.td(html.div(html.div(str(testcounter)+ "."+ str(i)+ " "+str(obtener_explicacion_linea(line)), style ="float:left;  font-weight:bold;"), html.div(line,style="float:right; color: green;"), style="color: black;"))))
                 tbody.append(assertStruc(valores[1],test_info["captura"]))            
                 asserted =True
             else:
@@ -346,7 +346,7 @@ def pytest_html_results_table_html(report, data):
             if first_line:
                 first_line = False
             elif "assert" in line:
-                tbody.append(html.tr(html.td(html.div(html.div(str(testcounter)+ "."+ str(i)+ " "+str(obtener_explicacion_linea(line)), style ="float:left; font-weight:bold;"), html.div(linestyle="float:right;"), style="color: black;"))))
+                tbody.append(html.tr(html.td(html.div(html.div(str(testcounter)+ "."+ str(i)+ " "+str(obtener_explicacion_linea(line)), style ="float:left; font-weight:bold;"), html.div(line,style="float:right; color: red;"), style="color: black;"))))
                 tbody.append(assertErrorStruc(error[0],error[1], valores[0], valores[1],test_info["captura"]))  
                 asserted = True
             else:
