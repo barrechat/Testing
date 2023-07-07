@@ -158,7 +158,7 @@ def assertStruc(esperado, captura):
                         html.td(esperado)
                     )
                 ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; color:black;"),
-                html.p("Test correcto", style ="margin-top:100px;"),
+                html.p("", style ="margin-top:100px;"),
                 html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 150px;"),style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"),
                 style="overflow: auto; width: 100%;",
                 class_="extr"
@@ -186,7 +186,7 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
                         html.td(obtenido)
                     )
                 ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; color:black;"),
-                html.div(html.p(valoreserror),html.p(solucionerror),style = "margin-top:100px; max-width: 50vw;"),
+                html.div(html.p(valoreserror, style = "color: red;"),html.p(solucionerror, style= "color: red;"),style = "margin-top:100px; max-width: 50vw;"),
 
                 html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 150px;"),style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"),
                 
@@ -299,7 +299,7 @@ def pytest_html_results_table_html(report, data):
         table.append(thead)
         tbody = html.tbody()
         table.append(tbody)
-        thead.append(html.tr(html.th(test_info["name"])))
+        thead.append(html.tr(html.th(test_info["name"], style= "font-size: 17px;")))
         first_line = True
         asserted = False
         i=0
@@ -337,7 +337,7 @@ def pytest_html_results_table_html(report, data):
         table.append(thead)
         tbody = html.tbody()
         table.append(tbody)
-        thead.append(html.tr(html.th(test_info["name"])))
+        thead.append(html.tr(html.th(test_info["name"], style= "font-size: 17px;")))
         first_line = True
         asserted = False
         i=0
