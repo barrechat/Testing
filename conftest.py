@@ -157,9 +157,8 @@ def assertStruc(esperado, captura):
                         html.td("Resultado obtenido"),
                         html.td(esperado)
                     )
-                ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; color:black;"),
-                html.p("", style ="margin-top:100px;"),
-                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 150px;"),style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"),
+                ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; margin-top: 60px; margin-left: 160px; color:black;"),
+                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 150px;"),style=" margin-top: 20px; margin-bottom:20px; overflow: auto; max-height: 200px;"),
                 style="overflow: auto; width: 100%;",
                 class_="extr"
             )
@@ -168,6 +167,7 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
     return html.tr(
     html.td(
         html.div(
+            html.div(
             html.div(
                     html.div(html.table(
                         html.thead(
@@ -185,10 +185,10 @@ def assertErrorStruc(valoreserror, solucionerror,obtenido, esperado, captura):
                         html.td("Resultado obtenido"),
                         html.td(obtenido)
                     )
-                ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style="float: left; color:black;"),
-                html.div(html.p(valoreserror, style = "color: red;"),html.p(solucionerror, style= "color: red;"),style = "margin-top:100px; max-width: 50vw;"),
+                ),style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);"),), style=" color:black;"),
+                html.div(html.p(valoreserror, style = "color: red;"),html.p(solucionerror, style= "color: red;"),style = "margin-top: 100px; max-width: 30vw;"),style="float: left; margin-top: 40px; margin-left: 150px;"),
 
-                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 150px;"),style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"),
+                html.div(html.img(src= captura, style= " max-height: 200px; float: right; margin-right: 150px;"),style=" margin-top: 20px; margin-bottom: 20px; overflow: auto; max-height: 200px;"),
                 
                 style="overflow: auto; width: 100%;",
                 class_="extra"

@@ -253,12 +253,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>Reporte de ensayo</h1>
-    <p>Report generated on 07-Jul-2023 at 10:41:10 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 09-Jul-2023 at 19:10:34 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Numero Reporte</td>
-        <td>577</td></tr>
+        <td>610</td></tr>
       <tr>
         <td>Packages</td>
         <td>{"pluggy": "1.0.0", "pytest": "7.3.1"}</td></tr>
@@ -292,7 +292,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <p style="color: red"><a href="#paso-7" style="color: black">Paso 7</a> Failed</p></li>
       <li>
         <p style="color: green"><a href="#paso-8" style="color: black">Paso 8</a> Passed</p></li></ul>
-    <p>8 tests ran in 1.89 seconds. </p>
+    <p>8 tests ran in 1.84 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p>
     <h2>Filters</h2><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span><br/><input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span><br/><input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">4 failed</span><br/><input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span><br/><input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span><br/><input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
@@ -313,7 +313,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <td class="col-result">Failed</td>
           <td class="col-title">Test de visualizacion de la barra desplegable</td>
           <td class="col-name">testsCatedra/test_HMI.py::test_DesplegableFallido</td>
-          <td class="col-time">2023-07-07 10:41:10.390819</td>
+          <td class="col-time">2023-07-09 19:10:34.564361</td>
           <td class="col-duration">0.97</td></tr>
         <tr>
           <td class="extra" colspan="6">
@@ -347,31 +347,32 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td>
                     <div class="extra" style="overflow: auto; width: 100%;">
-                      <div style="float: left; color:black;">
-                        <div>
-                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>Resultados</th></tr></thead>
-                            <tbody>
-                              <tr>
-                                <td>Resultado esperado</td>
-                                <td> &apos;width: 100%;&apos;  </td></tr>
-                              <tr>
-                                <td>Resultado obtenido</td>
-                                <td> &apos;&apos; </td></tr></tbody></table></div></div>
-                      <div style="margin-top:100px; max-width: 50vw;">
-                        <p style="color: red;">ERROR: AssertionError: assert &apos;&apos; == &apos;width: 100%;&apos;  </p>
-                        <p style="color: red;"> Fallo en el Assert: Comprobar valores en pagina web</p></div>
-                      <div style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_DesplegableFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+                      <div style="float: left; margin-top: 40px; margin-left: 150px;">
+                        <div style=" color:black;">
+                          <div>
+                            <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                              <thead>
+                                <tr>
+                                  <th></th>
+                                  <th>Resultados</th></tr></thead>
+                              <tbody>
+                                <tr>
+                                  <td>Resultado esperado</td>
+                                  <td> &apos;width: 100%;&apos;  </td></tr>
+                                <tr>
+                                  <td>Resultado obtenido</td>
+                                  <td> &apos;&apos; </td></tr></tbody></table></div></div>
+                        <div style="margin-top: 100px; max-width: 30vw;">
+                          <p style="color: red;">ERROR: AssertionError: assert &apos;&apos; == &apos;width: 100%;&apos;  </p>
+                          <p style="color: red;"> Fallo en el Assert: Comprobar valores en pagina web</p></div></div>
+                      <div style=" margin-top: 20px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_DesplegableFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td id="paso-3">003</td>
           <td class="col-result">Failed</td>
           <td class="col-title">Test de visualizacion de la ventana de temperatura</td>
           <td class="col-name">testsCatedra/test_HMI.py::test_TemperaturasFallido</td>
-          <td class="col-time">2023-07-07 10:41:10.392561</td>
+          <td class="col-time">2023-07-09 19:10:34.565915</td>
           <td class="col-duration">0.11</td></tr>
         <tr>
           <td class="extra" colspan="6">
@@ -405,32 +406,33 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td>
                     <div class="extra" style="overflow: auto; width: 100%;">
-                      <div style="float: left; color:black;">
-                        <div>
-                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>Resultados</th></tr></thead>
-                            <tbody>
-                              <tr>
-                                <td>Resultado esperado</td>
-                                <td>true</td></tr>
-                              <tr>
-                                <td>Resultado obtenido</td>
-                                <td>false</td></tr></tbody></table></div></div>
-                      <div style="margin-top:100px; max-width: 50vw;">
-                        <p style="color: red;">ERROR: AssertionError: assert not True +  where True </p>
-                        <p style="color: red;"> Fallo en el Assert: Comprobar valores en pagina web</p></div>
-                      <div style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_TemperaturasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+                      <div style="float: left; margin-top: 40px; margin-left: 150px;">
+                        <div style=" color:black;">
+                          <div>
+                            <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                              <thead>
+                                <tr>
+                                  <th></th>
+                                  <th>Resultados</th></tr></thead>
+                              <tbody>
+                                <tr>
+                                  <td>Resultado esperado</td>
+                                  <td>true</td></tr>
+                                <tr>
+                                  <td>Resultado obtenido</td>
+                                  <td>false</td></tr></tbody></table></div></div>
+                        <div style="margin-top: 100px; max-width: 30vw;">
+                          <p style="color: red;">ERROR: AssertionError: assert not True +  where True </p>
+                          <p style="color: red;"> Fallo en el Assert: Comprobar valores en pagina web</p></div></div>
+                      <div style=" margin-top: 20px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_TemperaturasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td id="paso-5">005</td>
           <td class="col-result">Failed</td>
           <td class="col-title">Test de visualizacion de la ventana de temperatura</td>
           <td class="col-name">testsCatedra/test_HMI.py::test_IncidenciasFallido</td>
-          <td class="col-time">2023-07-07 10:41:10.393356</td>
-          <td class="col-duration">0.10</td></tr>
+          <td class="col-time">2023-07-09 19:10:34.566711</td>
+          <td class="col-duration">0.09</td></tr>
         <tr>
           <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la ventana de temperatura
@@ -463,32 +465,33 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td>
                     <div class="extra" style="overflow: auto; width: 100%;">
-                      <div style="float: left; color:black;">
-                        <div>
-                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>Resultados</th></tr></thead>
-                            <tbody>
-                              <tr>
-                                <td>Resultado esperado</td>
-                                <td>true</td></tr>
-                              <tr>
-                                <td>Resultado obtenido</td>
-                                <td>false</td></tr></tbody></table></div></div>
-                      <div style="margin-top:100px; max-width: 50vw;">
-                        <p style="color: red;">ERROR: AssertionError: assert not True +  where True </p>
-                        <p style="color: red;"> Fallo en el Assert: Comprobar valores en pagina web</p></div>
-                      <div style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_IncidenciasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+                      <div style="float: left; margin-top: 40px; margin-left: 150px;">
+                        <div style=" color:black;">
+                          <div>
+                            <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                              <thead>
+                                <tr>
+                                  <th></th>
+                                  <th>Resultados</th></tr></thead>
+                              <tbody>
+                                <tr>
+                                  <td>Resultado esperado</td>
+                                  <td>true</td></tr>
+                                <tr>
+                                  <td>Resultado obtenido</td>
+                                  <td>false</td></tr></tbody></table></div></div>
+                        <div style="margin-top: 100px; max-width: 30vw;">
+                          <p style="color: red;">ERROR: AssertionError: assert not True +  where True </p>
+                          <p style="color: red;"> Fallo en el Assert: Comprobar valores en pagina web</p></div></div>
+                      <div style=" margin-top: 20px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_IncidenciasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td id="paso-7">007</td>
           <td class="col-result">Failed</td>
           <td class="col-title">Test del input de incidencias</td>
           <td class="col-name">testsCatedra/test_HMI.py::test_InputIncidenciasFallido</td>
-          <td class="col-time">2023-07-07 10:41:10.394185</td>
-          <td class="col-duration">0.14</td></tr>
+          <td class="col-time">2023-07-09 19:10:34.567525</td>
+          <td class="col-duration">0.13</td></tr>
         <tr>
           <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test del input de incidencias
@@ -531,32 +534,33 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 <tr>
                   <td>
                     <div class="extra" style="overflow: auto; width: 100%;">
-                      <div style="float: left; color:black;">
-                        <div>
-                          <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>Resultados</th></tr></thead>
-                            <tbody>
-                              <tr>
-                                <td>Resultado esperado</td>
-                                <td> &apos;block;&apos;  </td></tr>
-                              <tr>
-                                <td>Resultado obtenido</td>
-                                <td> &apos;display: block;&apos; </td></tr></tbody></table></div></div>
-                      <div style="margin-top:100px; max-width: 50vw;">
-                        <p style="color: red;">ERROR: AssertionError: assert &apos;display: block;&apos; == &apos;block;&apos;  </p>
-                        <p style="color: red;"> Fallo en el Assert: Comprobar valores en pagina web</p></div>
-                      <div style="margin-top:-100px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidenciasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
+                      <div style="float: left; margin-top: 40px; margin-left: 150px;">
+                        <div style=" color:black;">
+                          <div>
+                            <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
+                              <thead>
+                                <tr>
+                                  <th></th>
+                                  <th>Resultados</th></tr></thead>
+                              <tbody>
+                                <tr>
+                                  <td>Resultado esperado</td>
+                                  <td> &apos;block;&apos;  </td></tr>
+                                <tr>
+                                  <td>Resultado obtenido</td>
+                                  <td> &apos;display: block;&apos; </td></tr></tbody></table></div></div>
+                        <div style="margin-top: 100px; max-width: 30vw;">
+                          <p style="color: red;">ERROR: AssertionError: assert &apos;display: block;&apos; == &apos;block;&apos;  </p>
+                          <p style="color: red;"> Fallo en el Assert: Comprobar valores en pagina web</p></div></div>
+                      <div style=" margin-top: 20px; margin-bottom: 20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidenciasFallido.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td id="paso-2">002</td>
           <td class="col-result">Passed</td>
           <td class="col-title">Test de visualizacion de la barra desplegable</td>
           <td class="col-name">testsCatedra/test_HMI.py::test_Desplegable</td>
-          <td class="col-time">2023-07-07 10:41:10.391860</td>
-          <td class="col-duration">0.12</td></tr>
+          <td class="col-time">2023-07-09 19:10:34.565242</td>
+          <td class="col-duration">0.10</td></tr>
         <tr>
           <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la barra desplegable
@@ -593,7 +597,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                       <div style="float:right; color: green;">assert widthDesplegado == &apos;width: 100%;&apos;</div></div></td></tr>
                 <tr>
                   <td class="extr" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black;">
+                    <div style="float: left; margin-top: 60px; margin-left: 160px; color:black;">
                       <div>
                         <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
                           <thead>
@@ -607,15 +611,14 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                             <tr>
                               <td>Resultado obtenido</td>
                               <td> &apos;width: 100%;&apos;</td></tr></tbody></table></div></div>
-                    <p style="margin-top:100px;">Test correcto</p>
-                    <div style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Desplegable.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
+                    <div style=" margin-top: 20px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Desplegable.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td id="paso-4">004</td>
           <td class="col-result">Passed</td>
           <td class="col-title">Test de visualizacion de la ventana de temperatura</td>
           <td class="col-name">testsCatedra/test_HMI.py::test_Temperaturas</td>
-          <td class="col-time">2023-07-07 10:41:10.393162</td>
+          <td class="col-time">2023-07-09 19:10:34.566523</td>
           <td class="col-duration">0.09</td></tr>
         <tr>
           <td class="extra" colspan="6">
@@ -648,7 +651,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                       <div style="float:right; color: green;">assert botonTemperatura.is_enabled()</div></div></td></tr>
                 <tr>
                   <td class="extr" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black;">
+                    <div style="float: left; margin-top: 60px; margin-left: 160px; color:black;">
                       <div>
                         <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
                           <thead>
@@ -662,16 +665,15 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                             <tr>
                               <td>Resultado obtenido</td>
                               <td>true</td></tr></tbody></table></div></div>
-                    <p style="margin-top:100px;">Test correcto</p>
-                    <div style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Temperaturas.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
+                    <div style=" margin-top: 20px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Temperaturas.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td id="paso-6">006</td>
           <td class="col-result">Passed</td>
           <td class="col-title">Test de visualizacion de la ventana de temperatura</td>
           <td class="col-name">testsCatedra/test_HMI.py::test_Incidencias</td>
-          <td class="col-time">2023-07-07 10:41:10.393996</td>
-          <td class="col-duration">0.09</td></tr>
+          <td class="col-time">2023-07-09 19:10:34.567338</td>
+          <td class="col-duration">0.07</td></tr>
         <tr>
           <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test de visualizacion de la ventana de temperatura
@@ -703,7 +705,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                       <div style="float:right; color: green;">assert botonIncidencias.is_enabled()</div></div></td></tr>
                 <tr>
                   <td class="extr" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black;">
+                    <div style="float: left; margin-top: 60px; margin-left: 160px; color:black;">
                       <div>
                         <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
                           <thead>
@@ -717,16 +719,15 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                             <tr>
                               <td>Resultado obtenido</td>
                               <td>true</td></tr></tbody></table></div></div>
-                    <p style="margin-top:100px;">Test correcto</p>
-                    <div style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Incidencias.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
+                    <div style=" margin-top: 20px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_Incidencias.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td id="paso-8">008</td>
           <td class="col-result">Passed</td>
           <td class="col-title">Test del input de incidencias</td>
           <td class="col-name">testsCatedra/test_HMI.py::test_InputIncidencias</td>
-          <td class="col-time">2023-07-07 10:41:10.394717</td>
-          <td class="col-duration">0.16</td></tr>
+          <td class="col-time">2023-07-09 19:10:34.568626</td>
+          <td class="col-duration">0.18</td></tr>
         <tr>
           <td class="extra" colspan="6">
             <p style="font-weight: bold; font-size: 15px">Test del input de incidencias
@@ -768,7 +769,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                       <div style="float:right; color: green;">assert table == &apos;display: block;&apos;</div></div></td></tr>
                 <tr>
                   <td class="extr" style="overflow: auto; width: 100%;">
-                    <div style="float: left; color:black;">
+                    <div style="float: left; margin-top: 60px; margin-left: 160px; color:black;">
                       <div>
                         <table style="float: left; color:black; margin:10px; background-color:rgb(228, 228, 228);">
                           <thead>
@@ -782,5 +783,4 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                             <tr>
                               <td>Resultado obtenido</td>
                               <td> &apos;display: block;&apos;</td></tr></tbody></table></div></div>
-                    <p style="margin-top:100px;">Test correcto</p>
-                    <div style="margin-top:-100px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidencias.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody></table></body></html>
+                    <div style=" margin-top: 20px; margin-bottom:20px; overflow: auto; max-height: 200px;"><img src="testsCatedra/capturas/test_InputIncidencias.png" style=" max-height: 200px; float: right; margin-right: 150px;"/></div></td></tr></tbody></table></td></tr></tbody></table></body></html>
